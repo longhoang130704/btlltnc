@@ -29,6 +29,7 @@ body {
 
 .topnav .a-container {
   float: right;
+  
   display: block;
   background-color: transparent;
   height: 50px;
@@ -59,51 +60,70 @@ body {
   color: white;
 }
 
-.user-guide-container {
+.welcome {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 36px;
+  color: white;
   text-align: center;
+  font-weight: bold;
 }
 
-.container {
-  display: block;
-  padding: 150px;
+.input-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  margin: auto;
+  background-color: #6A91F9;
+  border-radius: 10px;
 }
 
-.user-guide a {
-  text-decoration: none;
-  display: block;
-  width: auto;
-  font-size: 64px;
-  font-weight: bolder;
-  padding: 10px 0px;
+.input-container input, button {
+  height: 50px;
+  width: 400px;
+  padding: 10px;
+  border-width: 0px;
+  margin: 10px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.input-container input {
+  background-color: #213496;
   color: white;
 }
 
-.user-guide a:hover {
+.input-container button {
+  background-color: #122276;
+  color: white;
+}
+
+.input-container button:hover {
+  cursor: pointer;
+  background-color: #ddd;
+  color: black;
+}
+
+.input-container p {
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.input-container p a {
+  text-decoration: none;
+  color: blue;
+}
+
+.input-container p a:hover{
   text-decoration: none;
   text-decoration: underline;
 }
 
-.empty-div {
-  display: block;
-  height: 150px;
-}
 
-.footer-container {
-  display: flex;
-  font-size: 24px;
-  color: white;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-.project-info {
-  display: block;
-  text-align: center;
-  padding-left: 25px;
-}
-
-.contact-info {
-  display: block;
-  text-align: center;
-  padding-right: 25px;
-}
