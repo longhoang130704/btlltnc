@@ -5,6 +5,8 @@ import {
     set,
     ref,
   } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  
+  // Thay firebaseConfig bằng cái của nhóm
   const firebaseConfig = {
     apiKey: "AIzaSyB9JtFcQE6GjT75vidQbbnfRhhUHAbXLQ8",
     authDomain: "webapp-15dcd.firebaseapp.com",
@@ -14,6 +16,7 @@ import {
     messagingSenderId: "202280076352",
     appId: "1:202280076352:web:f582a1afec4cb7cf608ba5"
   };
+
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getDatabase(app);
@@ -33,6 +36,7 @@ import {
       set(ref(db, 'Users/' + userCredential.user.uid), {
         role: "Students"
       }),
+      // đổi thành set(ref(db, 'Roles/Students/' + uid))
       set(ref(db, 'Students/' + userCredential.user.uid), {
         email: email.value,
         firstname: firstname.value,
@@ -43,6 +47,8 @@ import {
       return Promise.all(promises);
     })
     .then(() => {
+      // Chuyển hướng sang trang chính luôn
+      // đổi thành ...href = "./index.html" 
       window.location.href = "./login.html"; 
     })
     .catch((error) => {
