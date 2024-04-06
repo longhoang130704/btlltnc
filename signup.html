@@ -22,7 +22,7 @@
   <div class="welcome">
     <p>Welcome, create your account</p>
   </div>
-
+  <form id="mainform">
   <div class="input-container">
     <div class="name-container">
       <input type="text" autocomplete="off" placeholder="First name" id="fname-input" required>
@@ -30,9 +30,11 @@
     </div>
     <input type="email" autocomplete="off" placeholder="Email address" id="email-input" required>
     <input type="password" autocomplete="off" placeholder="New password" id="password-input" required>
-    <input type="date" autocomplete="off" required>
+    <input type="date" autocomplete="off" id="birthday-input" required>
     <button type="submit">Sign up</button>
     <p>Already have an account? <a href="./login.html">Log in</a></p>
   </div>
+  </form>
+  <script type="module" src="./source/signup.js"></script>
 </body>
 </html>
