@@ -6,15 +6,14 @@ import {
     ref,
   } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   
-  // Thay firebaseConfig bằng cái của nhóm
   const firebaseConfig = {
-    apiKey: "AIzaSyB9JtFcQE6GjT75vidQbbnfRhhUHAbXLQ8",
-    authDomain: "webapp-15dcd.firebaseapp.com",
-    databaseURL: "https://webapp-15dcd-default-rtdb.firebaseio.com",
-    projectId: "webapp-15dcd",
-    storageBucket: "webapp-15dcd.appspot.com",
-    messagingSenderId: "202280076352",
-    appId: "1:202280076352:web:f582a1afec4cb7cf608ba5"
+    apiKey: "AIzaSyAn4qlccbAWPFI9xwl7oe2nYJYk3MG1mWo",
+    authDomain: "btl-ltnc-hk232.firebaseapp.com",
+    databaseURL: "https://btl-ltnc-hk232-default-rtdb.firebaseio.com",
+    projectId: "btl-ltnc-hk232",
+    storageBucket: "btl-ltnc-hk232.appspot.com",
+    messagingSenderId: "912822160722",
+    appId: "1:912822160722:web:01a3228b49c25871f17e8b"
   };
 
   const app = initializeApp(firebaseConfig);
@@ -36,8 +35,7 @@ import {
       set(ref(db, 'Users/' + userCredential.user.uid), {
         role: "Students"
       }),
-      // đổi thành set(ref(db, 'Roles/Students/' + uid))
-      set(ref(db, 'Students/' + userCredential.user.uid), {
+      set(ref(db, 'Roles/Students/' + userCredential.user.uid), {
         email: email.value,
         firstname: firstname.value,
         lastname: lastname.value,
@@ -47,9 +45,7 @@ import {
       return Promise.all(promises);
     })
     .then(() => {
-      // Chuyển hướng sang trang chính luôn
-      // đổi thành ...href = "./index.html" 
-      window.location.href = "./login.html"; 
+      window.location.href = "./index.html"; 
     })
     .catch((error) => {
       alert(error.message);
