@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import { createUserWithEmailAndPassword, getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import {
-    getDatabase,
-    set,
-    ref,
-  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  getDatabase,
+  ref,
+  set,
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   
   const firebaseConfig = {
     apiKey: "AIzaSyAn4qlccbAWPFI9xwl7oe2nYJYk3MG1mWo",
@@ -54,4 +54,8 @@ import {
     })
   }
   mainform.addEventListener('submit', signUp);
-
+  document.querySelector('body').addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+      signUp();
+    }
+  })
