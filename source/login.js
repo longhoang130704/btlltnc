@@ -1,5 +1,11 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import {
+    getDatabase,
+    get,
+    ref,
+    child,
+  } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAn4qlccbAWPFI9xwl7oe2nYJYk3MG1mWo",
@@ -13,7 +19,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); // Lay dc auth
-// const db = getDatabase(app); // lay db
+const db = getDatabase(app); // lay db
+const dbRef = ref(db); //tham chieu toi database
 
 // lay input cua email va password, cac element tu html
 const emailInput = document.querySelector('#email-input');
@@ -22,20 +29,37 @@ const loginButton = document.querySelector('#login-button');
 
 // ham login
 //da lang nghe duoc su kien click o login button
-let login = (e) => {
+let login = async (e) => { //async de su dung await
     e.preventDefault();
-    signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user.uid);
-    })  
-    .then(() => {
-       alert('Dăng nhập thành công')
-    })
-    .catch((error) => {
-      alert('Sai email hoặc mật khẩu')  
-    })
-  }
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);//doi hoan thanh dang nhap
+        const snapshot = await get(child(dbRef, `Users/${userCredential.user.uid}`));//doi lay user role
+        let user_role;
+        if(snapshot.exists()){
+            sessionStorage.setItem(//luu role vao session storage
+                "user-role",
+                JSON.stringify({role: snapshot.val().role})
+            );
+            user_role = snapshot.val().role;
+        }
+        const roleSnapshot = await get(child(dbRef, `Roles/${user_role}/${userCredential.user.uid}`));//doi lay thong tin user
+        if(roleSnapshot.exists()){
+            sessionStorage.setItem(//luu thong tin user vao session storage
+                "user-info",
+                JSON.stringify({
+                    firstname: roleSnapshot.val().firstname,
+                    lastname: roleSnapshot.val().lastname,
+                    email: roleSnapshot.val().email,
+                    birthday: roleSnapshot.val().birthday
+                })
+            );
+        }
+        alert('Dăng nhập thành công');
+        window.location.href = "./index.html";
+    } catch (error) {
+        alert('Sai email hoặc mật khẩu');
+    }
+}
 
 //lang nghe su kien click o submit button, nhấn phím enter
 loginButton.addEventListener('click', login);
