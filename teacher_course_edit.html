@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Course</title>
+    <link rel="stylesheet" href="style/share.css">
+    <link rel="stylesheet" href="style/tc_course_edit.css">
+</head>
+<body>     
+  <div class="container">
+    <div class="main-content">
+          <img src="img/background.jpg" alt="" />
+          <!---------------Header---------------->
+          <header class="header">
+            <div class="logo">LOGO</div>
+            <nav class="nav-container">
+              <ul class="nav-list">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Courses</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">User name</a>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <!------------------Label------------------>
+          <h1 class="course-title">Course Name - Teacher name - Class</h1>
+          <!------------------Content------------------>
+          <div class="course-content">
+            <nav class="course-nav">
+              <a href="teacher_course.html" class="course-nav-link active">Course</a>
+              <a href="teacher_grade_stdl.html" class="course-nav-link">Grading</a>
+              <a href="teacher_course_edit.html" class="course-nav-link">Edit Course</a>
+            </nav>
+            <div class="general-info">
+              <h2 class="section-title">General</h2>
+              <div class="divider"></div>
+              <div class="content-item">
+                <div class="content-thumbnail"></div>
+                <h3 class="content-title">Content name</h3>
+              </div>
+              <div class="content-item-add">
+                <img src="img/add_button.png" alt="Create content icon" class="create-content-icon" />
+                <a id="create-content" class="create-content-text">Create content</a>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!--------------creat content--------------->
+<div class="create-window" id="create-window">
+    <section class="name-wrapper">
+        <label class="name-label">Name</label>
+        <input type="text" class="name-input" aria-label="Name input" />
+    </section>
+    <section class="type-wrapper">
+        <span class="type-label">Type</span>
+        <input type="checkbox" id="Checkbox1" class="check-box">
+        <label for="Checkbox1">Type</label>
+        <input type="checkbox" id="Checkbox2" class="check-box">
+        <label for="Checkbox2">Text</label>
+    </section>
+    <button class="upload-button">Upload file</button>
+    <button class="cancel-button" id="cancel">cancel</button>
+</div>
+</body>
+<script>
+    // Lấy phần tử creat và creat_window
+    var creat = document.getElementById("create-content");
+    var creat_window = document.getElementById("create-window");
+    var close = document.getElementById("cancel");
+    
+    // Khi người dùng click vào creat, hiển thị creat_window
+    creat.onclick = function() {
+        creat_window.style.display = "flex";
+    }
+    
+    // Khi người dùng click vào nút close, đóng modal
+    close.onclick = function() {
+        creat_window.style.display = "none";
+    }
+</script>
+</html>
