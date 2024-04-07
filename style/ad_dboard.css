@@ -1,0 +1,181 @@
+* {
+    font-family: Karla;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+ :root{
+    --body-color:#E4E9F7;
+    --sidebar-color: #03075c;
+    --hover-color: #09043d;
+    --text-color:#fffefe;
+    --boder-color: #fffefe;
+ } 
+  body {
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+  }
+  .sidebar{
+    height: 100%;
+    width: 18%;
+    position: fixed;
+    top: 0;
+    left: -200;
+    background: var(--sidebar-color);
+    transition: left 0.3s ease-in-out;
+  }
+  .sidebar header{
+    position: relative;
+  }
+  .sidebar img{
+    width: 100%;
+  }
+ .sidebar .roleuser{
+  height: 80px;
+  width: 100%;
+  background-color: #6A91F9;
+  text-align: center;
+  align-content: center;
+ }
+ p{
+  color: #fffefe;
+  font-size: 150%;
+ }
+  .nav-link{
+    height: 80px;
+    width: 100%;
+    border-top: 2px var(--boder-color) ridge;
+    text-align: center;
+    align-content: center;
+  }
+ .nav-text{
+    text-decoration: none;
+    font-size: 150%;
+    color: var(--text-color);
+}
+/* doi mau */
+.nav-link.active {
+    background-color: var(--sidebar-color); 
+}
+
+.nav-link.active:hover {
+    background-color: var(--hover-color); 
+}
+.content{
+  margin-left: 20%; 
+  padding: 20px;
+  color: black;
+   display: none; 
+}
+.content.active {
+  display: block; /* Show active content */
+}
+
+.content .styleProfile{
+  width: 97%;
+  height: 800px;
+  background-color: #6A91F9;
+  border-radius: 20px;
+}
+.content .styleProfile .info{
+  height: 100px;
+  width: 90%;
+  margin: 0px 50px 0px 50px;
+  padding: 20px;
+}
+.content .styleProfile .info p{
+  display: inline;
+  font-size: 200%;
+}
+.content .styleProfile .info span{
+  float: right;
+  background-color:#09043d;
+  display: inline;
+  color: #fffefe;
+  width: 60%;
+  font-size: 200%;
+  border-radius: 10px;
+  text-align: center;
+}
+.content .styleCourse{
+  width: 97%;
+  height: 800px;
+  background-color: #6A91F9;
+  border-radius: 20px;
+  padding: 50px;
+}
+input{
+  background-color: #ffffff;
+}
+input[type="text"],
+    input[type="number"]{
+      width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        border-radius: 10%;
+        color: black;
+    }
+    input[type="submit"] {
+      background-color: #3e2fec;
+      color: rgb(255, 255, 255);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10%;
+      cursor: pointer;
+      float: right;
+      font-size: 100%;
+  }
+  input[type="submit"]:hover {
+      background-color: #3a0bb1;
+      border-radius: 10%;
+  }
+  .content .styleCourse .creatCourse form{
+    border: rgb(10, 56, 146) 5px ridge;
+    padding: 15px;
+  }
+  .content .styleCourse .creatCourse label{
+    font-size: 150%;
+    color: #fffefe;
+  }
+ .content .styleTimetable{
+  width: 97%;
+  height: 800px;
+  background-color: #6A91F9;
+  border-radius: 20px;
+}
+.content .styleGrade{
+  width: 97%;
+  background-color: #6A91F9;
+  border-radius: 20px;
+  padding: 50px;
+}
+ .content .styleGrade .listcource .content-item{
+    border-radius: 5px;
+    background-color: #00116a;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 70%;
+    margin: 10px;
+} 
+.content .styleGrade .listcource .content-item .content-thumbnail {
+  border-radius: 5px;
+  background-color: #8595eb;
+  width: 80px;
+  height: 80px;
+}
+
+.content .styleGrade .listcource .content-item .content-title {
+  flex-grow: 1;
+  flex-basis: auto;
+  margin: auto 0;
+}
+.content .styleGrade .listcource .content-item .content-title a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 150%;
+}
+.content .styleGrade .listcource .content-item .content-title p{
+  font-size: 100%;
+}

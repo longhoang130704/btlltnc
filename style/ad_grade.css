@@ -1,0 +1,30 @@
+* {
+    font-family: Karla;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  } 
+  body {
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    padding: 50px;
+  }
+  .container{
+    border-radius: 10%;
+    background-color: #6A91F9;
+    height: 100%;
+    padding: 20px;
+  }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border-bottom: 3px solid white;
+    padding: 8px;
+    text-align: center;
+    font-size: 150%;
+    color: white;
+}
+
