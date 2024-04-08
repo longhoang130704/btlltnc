@@ -41,7 +41,22 @@ import {
         lastname: lastname.value,
         birthday: birthday.value,
       })
-    ];
+      ];
+      sessionStorage.setItem(
+        //luu role vao session storage
+        "user-role",
+        JSON.stringify({ role: "Students" })
+      );
+      sessionStorage.setItem(
+        //luu thong tin user vao session storage
+        "user-info",
+        JSON.stringify({
+          firstname: firstname.value,
+          lastname: lastname.value,
+          email: email.value,
+          birthday: birthday.value,
+        })
+      );
       return Promise.all(promises);
     })
     .then(() => {
