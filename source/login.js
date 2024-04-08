@@ -54,7 +54,7 @@ let login = async (e) => { //async de su dung await
                 })
             );
         }
-        alert('Dăng nhập thành công');
+        alert('Đăng nhập thành công');
         window.location.href = "./index.html";
     } catch (error) {
         alert('Sai email hoặc mật khẩu');
