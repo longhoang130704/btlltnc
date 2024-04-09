@@ -27,14 +27,16 @@ let courses = document.querySelector(".a-container.courses");
 let dashboard = document.querySelector(".a-container.dashboard");
 let course_regis = document.querySelector(".a-container.course-regis");
 let login_but = document.querySelector(".a-container.login");
+let logout_but = document.querySelector(".a-container.logout");
 
 if(sessionStorage.getItem("user-info") == null){
     login_but.style.display = 'initial';
-}   
+}
+else {
+  logout_but.style.display = 'initial';
+}
 let user_role = JSON.parse(sessionStorage.getItem("user-role"));
 let info = JSON.parse(sessionStorage.getItem("user-info"));
-
-
 
 console.log(user_role.role);
 
@@ -50,3 +52,6 @@ if(user_role.role == 'Admin'){
   courses.style.display = 'initial';
   login_but.innerHTML =  "<a href='#'>" + info.lastname + ' ' + info.firstname + "</a>"; 
 }
+
+let logout = document.getElementById('logout');
+logout.addEventListener('click', sessionStorage.clear());

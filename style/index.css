@@ -31,12 +31,14 @@ body {
   float: right;
   display: block;
   background-color: transparent;
-  height: 50px;
-  width: max-content;
+  /* height: 50px; */
+  min-height: 50px;
+  height: max-content;
+  width: fit-content;
   padding: 0px 25px;
 }
 
-.topnav .a-container:hover {
+.topnav .a-container:hover{
   a {
     color: black;
   }
@@ -44,7 +46,7 @@ body {
   cursor: pointer;
 }
 
-.topnav a {
+.topnav a{
   display: block;
   color: #f2f2f2;
   text-align: center;
@@ -106,4 +108,28 @@ body {
   display: block;
   text-align: center;
   padding-right: 25px;
+}
+
+.logout {
+  padding: 0px;
+}
+
+#logout-btn {
+  text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 160px;
+  display: block;
+  height: 50px;
+  background-color: #00116A;
+  color: white;
+  font-family: Karla;
+  font-size: 32px;
+  border: none;
+}
+
+#logout-btn:hover {
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
 }
