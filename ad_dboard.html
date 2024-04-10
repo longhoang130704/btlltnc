@@ -16,13 +16,13 @@
             <div class="roleuser"><p>Admin</p></div>
             <div class="menu-bar">
                 <div class="nav-link active">
-                    <a href="#" class="nav-text" onclick="showContent('profile')">Profile</a>
+                    <a href="#" class="nav-text" onclick="showContent('overall')">Overall</a>
                 </div>
                 <div class="nav-link active">
-                    <a href="#" class="nav-text" onclick="showContent('course')">Course</a>
+                    <a href="#" class="nav-text" onclick="showContent('course')">Creat new course</a>
                 </div>
                 <div class="nav-link active">
-                    <a href="#" class="nav-text" onclick="showContent('timetable')">Timetable</a>
+                    <a href="#" class="nav-text" onclick="showContent('createteacher')">Create teacher account </a>
                 </div>
                 <div class="nav-link active">
                     <a href="#" class="nav-text" onclick="showContent('grade')">Grade</a>
@@ -30,70 +30,131 @@
             </div>
         </nav>
         <!-- Content -->
-    <div class="content" id="profileContent">
-        <div class="styleProfile">
-            <!-- Profile Content -->
+    <div class="content" id="overallContent">
+        <div class="styleOverall">
+            <!-- Overall Content -->
+            <div class="overall"><strong>Overall</strong></div>
             <div class="info">
-                <p>First name:</p>
-                <span id="userfname">User first name</span>
+                <p>Numbers of students:</p>
+                <span id="numst">Numbers of students</span> 
             </div>
             <div class="info">
-                <p>Last name:</p>
-                <span id="userlname">User last name</span>
+                <p>Numbers of teadchers:</p>
+                <span id="numteacher">Numbers of teachers</span>
             </div>
             <div class="info">
-                <p>User ID:</p>
-                <span class="userid">User ID</span>
+                <p>Numbers of courses:</p>
+                <span class="numcourse">Numbers of courses</span>
             </div>
             <div class="info">
-                <p>Email:</p>
-                <span class="useremail">User email</span>
+                <p>Numbers of classes:</p>
+                <span class="numclass">Numbers of classes</span>
             </div>            
         </div>
     </div>
     <div class="content" id="courseContent">
         <div class="styleCourse">
-            <!-- Profile Content -->
+            <div class="creatline"><p>Create new course</p></div>
+            <!-- Course Content -->
             <div class="creatCourse">
                 <form method="post">
-                    <label>Department:</label>
-                    <input type="text" id="department" name="department" required>
-
-                    <label>Course:</label>
-                    <input type="text" id="course" name="course" required>
-
-                    <label>Duration(tiết):</label>
-                    <input type="number" id="course_length" name="ourse_length" required>
-                
-                    <label>Start:</label>
-                    <input type="number" id="time_start" name="time_start" required>
+                    <!-- CourseID -->
+                    <div class="input_info">
+                        <label for="courseid"><p>CourseID:</p></label>
+                        <input type="number" id="courseid" name="courseid" required>
+                    </div>
+                    <!-- Class -->
+                    <div class="input_info">
+                        <label for="class"><p>Class:</p></label>
+                        <input type="text" id="class" name="class" required>
+                    </div>
+                    <!-- Assigned teacher -->
+                    <div class="input_info">
+                        <label for="teacher"><p>Teacher:</p></label>
+                        <input type="text" id="teacher" name="teacher" required>
+                    </div>
                     
-                    <label>End:</label>
-                    <input type="number" id="time_end" name="time_end" required>
-
-                    <label>Teacher:</label>
-                    <input type="text" id="teacher" name="teacher" required>
-
-                    <label>Date:</label>
-                    <input type="text" id="date" name="date" required>
-
-                    <label>Room:</label>
-                    <input type="text" id="room" name="room" required>
-
-                    <input type="submit" value="Create Course">
+                    <!-- Class capacity -->
+                    <div class="input_info">
+                        <label for="capacity"><p>Capacity:</p></label>
+                        <input type="number" id="capacity" name="capacity" required>
+                    </div>
+                    <!-- Course length (weeks) -->
+                    <div class="input_info">
+                        <label for="course_length"><p>Course length (weeks):</p></label>
+                        <input type="number" id="course_length" name="ourse_length" required>
+                    </div>
+                    <!-- On weekday -->
+                    <div class="input_info">
+                        <label for="dateOfWeek"><p>On weekday:</p></label>
+                        <select id="dayOfWeek" name="dayOfWeek">
+                            <option value="Monday">Thứ Hai</option>
+                            <option value="Tuesday">Thứ Ba</option>
+                            <option value="Wednesday">Thứ Tư</option>
+                            <option value="Thursday">Thứ Năm</option>
+                            <option value="Friday">Thứ Sáu</option>
+                            <option value="Saturday">Thứ Bảy</option>
+                            <option value="Sunday">Chủ Nhật</option>
+                          </select>
+                    </div>
+                    <!-- Begin time -->
+                    <div class="input_info">
+                        <label for="time_start"><p>Begin time:</p></label>
+                        <input type="time" id="time_start" name="time_start" required>
+                    </div>
+                    <!-- End time -->
+                    <div class="input_info">
+                        <label for="time_end"><p>End time:</p></label>
+                        <input type="time" id="time_end" name="time_end" required>
+                    </div>
+                    <!-- Room -->
+                    <!-- <div class="input_info">
+                        <label for="room"><p>Room:</p></label>
+                        <input type="text" id="room" name="room" required>
+                    </div>                  neu can dung den -->
+                    <div class="submited"><input type="submit" value="Create"></div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="content" id="timetableContent">
-        <div class="styleTimetable">
-            <!-- Profile Content -->
-            <p>Timetable</p>
+    <div class="content" id="createteacherContent">
+        <div class="styleCreateteacher">
+            <!-- Createteacher item -->
+            <div>
+                <div class="creatline"><p>Create teacher account</p></div>
+                <div class="input_info">
+                    <label for="fnameteacher"><p>First name:</p></label>
+                    <input type="text" name="First name" id="fnameteacher" required>
+                </div>
+                <div class="input_info">
+                    <label for="lnameteacher"><p>Last name:</p></label>
+                    <input type="text" name="Last name" id="lnameteacher" required>
+                </div>
+                <div class="input_info">
+                    <label for="emailteacher"><p>Email:</p></label>
+                    <input type="text" name="Email" id="emailteacher" required>
+                </div>
+                <div class="input_info">
+                    <label for="datebirth"><p>Date of birth:</p></label>
+                    <input type="date" name="Date of birth" id="datebirth" required>
+                </div>
+                <div class="submited"><input type="submit" value="Create"></div>
+            </div>
+            <div class="multiupload">
+                <div class="creatline"><p>Create multipel teacher account</p></div>
+                <div class="file-upload">
+                    <label for="uploadfile" class="upload-text">Upload file .csv</label>
+                    <input type="file" name="upload file .csv" id="uploadfile" required>
+                </div>
+                <div class="submited"><input type="submit" value="Create"></div>
+            </div>
+        
+            
         </div>
     </div>
     <div class="content" id="gradeContent">
         <div class="styleGrade">
-            <!-- Profile Content -->
+            <!-- Grade Content -->
            <div class="listcource">
             <div id="content-container"></div>
            </div>
@@ -148,6 +209,16 @@
 
         // Thêm div cha vào thẻ cha
         container.appendChild(div);
+
+        // input file
+        document.getElementById('uploadfile').addEventListener('change', function() {
+        var filename = this.value.split('\\').pop();
+        if (filename) {
+            document.querySelector('.upload-text').innerText = filename;
+        } else {
+            document.querySelector('.upload-text').innerText = 'Upload file .csv';
+        }
+    });
         }
     </script>
     </body>

@@ -36,13 +36,14 @@
   background-color: #6A91F9;
   text-align: center;
   align-content: center;
+  margin-bottom: 10px;
  }
  p{
   color: #fffefe;
   font-size: 150%;
  }
   .nav-link{
-    height: 80px;
+    height: 30px;
     width: 100%;
     border-top: 2px var(--boder-color) ridge;
     text-align: center;
@@ -50,7 +51,7 @@
   }
  .nav-text{
     text-decoration: none;
-    font-size: 150%;
+    font-size: 120%;
     color: var(--text-color);
 }
 /* doi mau */
@@ -71,29 +72,43 @@
   display: block; /* Show active content */
 }
 
-.content .styleProfile{
+.content .styleOverall{
   width: 97%;
   height: 800px;
   background-color: #6A91F9;
   border-radius: 20px;
 }
-.content .styleProfile .info{
-  height: 100px;
-  width: 90%;
-  margin: 0px 50px 0px 50px;
-  padding: 20px;
+.content .styleOverall .overall{
+  height: 50px;
+  align-content: center;
+  text-align: center;
+  border-bottom: #ffffff 2px ridge;
+  width: 95%;
+  margin: 0 auto;
+  
 }
-.content .styleProfile .info p{
+.content .styleOverall .overall strong{
+  color: #fffefe;
+  font-size: 200%;
+ }
+.content .styleOverall .info{
+  height: 50px;
+  width: 90%;
+  margin: 10px 10px 10px 30px;
+  padding: 10px;
+}
+.content .styleOverall .info p{
   display: inline;
   font-size: 200%;
 }
-.content .styleProfile .info span{
+.content .styleOverall .info span{
   float: right;
   background-color:#09043d;
   display: inline;
   color: #fffefe;
-  width: 60%;
-  font-size: 200%;
+  width: 50%;
+  height: 120%;
+  font-size: 170%;
   border-radius: 10px;
   text-align: center;
 }
@@ -104,41 +119,140 @@
   border-radius: 20px;
   padding: 50px;
 }
-input{
-  background-color: #ffffff;
+.content .styleCreateteacher .creatline{
+  height: 50px;
+  align-content: center;
+  text-align: center;
+  border-bottom: #ffffff 2px ridge;
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 10px;
 }
-input[type="text"],
-    input[type="number"]{
-      width: 100%;
-        padding: 8px;
-        margin: 5px 0;
-        box-sizing: border-box;
-        border-radius: 10%;
-        color: black;
-    }
+.content .styleCreateteacher .creatline p{
+  color: #fffefe;
+  font-size: 150%;
+ }
+ .content .styleCreateteacher .input_info{
+  margin-top: 10px;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+ } 
+input{
+  background-color: #362cac;
+  width: 50%;
+  border-radius: 2%;
+  color: white;
+  font-size: 100%;
+  border-style: none;
+  height: 100%;
+  text-align: center;
+}
+  label{
+    display: inline-block;
+    width: 30%;
+  }
+  .content .styleCreateteacher  .submited{
+    text-align: center;
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
     input[type="submit"] {
-      background-color: #3e2fec;
-      color: rgb(255, 255, 255);
-      padding: 10px 20px;
+      background-color: #1b1468;
+      color: white;
       border: none;
       border-radius: 10%;
       cursor: pointer;
-      float: right;
-      font-size: 100%;
+      font-size: 150%;
+      height: 30px;
+      width: 15%;
   }
   input[type="submit"]:hover {
-      background-color: #3a0bb1;
+      background-color: #4923a9;
       border-radius: 10%;
   }
-  .content .styleCourse .creatCourse form{
-    border: rgb(10, 56, 146) 5px ridge;
-    padding: 15px;
+  .content .styleCreateteacher .multiupload{
+    text-align: center;
+    align-content: center;
   }
-  .content .styleCourse .creatCourse label{
+  .content .styleCreateteacher .multiupload  .file-upload {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 100px;
+    margin-top: 10px;
+}
+.content .styleCreateteacher .multiupload .file-upload input[type="file"] {
+    position: absolute;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4c5f93;
+}
+.content .styleCreateteacher .multiupload .file-upload .upload-text {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
     font-size: 150%;
-    color: #fffefe;
+}
+
+  .content .styleCourse .creatCourse form{
+    padding: 15px;
+    align-content: center;
+    text-align: center;
   }
- .content .styleTimetable{
+  .content .styleCourse .creatCourse form .input_info{
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    height: 40px;
+  }
+  .content .styleCourse .creatCourse form .input_info label{
+    display: inline-block;
+    width: 40%;
+  }
+  .content .styleCourse .creatCourse form .input_info label p{
+    font-size: 150%;
+  }
+  .content .styleCourse .creatline{
+    height: 50px;
+    align-content: center;
+    text-align: center;
+    border-bottom: #ffffff 2px ridge;
+    width: 95%;
+    margin: 0 auto;
+  }
+ 
+  .content .styleCourse .creatline p{
+    color: #fffefe;
+    font-size: 150%;
+   }
+   .content .styleCourse .creatCourse form  .submited{
+    text-align: center;
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  select{
+    background-color: #362cac;
+  width: 50%;
+  border-radius: 2%;
+  color: white;
+  font-size: 100%;
+  border-style: none;
+  height: 100%;
+  text-align: center;
+  }
+ .content .styleCreateteacher{
   width: 97%;
   height: 800px;
   background-color: #6A91F9;
