@@ -1,0 +1,40 @@
+.student-list, .individual-grade {
+  font-size: 24px;
+}
+
+.student-list {
+  margin-top: 25px;
+}
+
+.student-list table, td, tr {
+  border-collapse: collapse;
+}
+
+.student-list table thead, tr {
+  border-bottom: 3px solid white;
+}
+
+.student-list td {
+  width: fit-content;
+  max-width: 300px;
+  padding: 5px 15px;
+}
+
+.individual-grade {
+  margin-top: 25px;
+  border-collapse: collapse;
+}
+
+.individual-grade  table, td, tr {
+  border-collapse: collapse;
+}
+
+.individual-grade table thead, tr {
+  border-bottom: 3px solid white;
+}
+
+.individual-grade td{
+  width: fit-content;
+  max-width: 300px;
+  padding: 5px 15px;
+}

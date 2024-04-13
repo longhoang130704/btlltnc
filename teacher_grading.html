@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course - Grading</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="./style/share.css">
+  <link rel="stylesheet" href="./style/teacher_grading.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <img src="./img/logo-placeholder.svg" alt="" class="logo">
+    <ul class="menu">
+      <li class="a-container">
+        <a href="./index.html">Home</a>
+      </li>
+      <li class="a-container active">
+        <a href="#">Courses</a>
+      </li>
+    </ul>
+    <div class="a-container">
+      <a href="#">User Name</a>
+    </div>
+  </div>
+
+  <div class="course-content">
+    <section class="name-table">
+      <div class="course-info">
+        <p>Course Name - Teacher Name - Class</p>
+      </div>
+    </section>
+    <div class="content-block">
+      <nav class="course-nav">
+        <a href="#" class="course-nav-link">Course</a>
+        <a href="./teacher_grading.html" class="course-nav-link active">Grading</a>
+        <a href="#" class="course-nav-link">Edit Course</a>
+      </nav>
+
+      <div class="student-list" id="student-list">
+        <table>
+          <thead>
+            <td>Student ID</td>
+            <td>First name</td>
+            <td>Last name</td>
+            <td>Overall Grade</td>
+          </thead>
+          <tr>
+            <td><a href="#" id="student-id">00000001</a></td>
+            <td>Nguyen</td>
+            <td>Van A</td>
+            <td>Not found</td>
+          </tr>
+          <tr>
+            <td><a href="#" id="student-id">00000002</a></td>
+            <td>Tran</td>
+            <td>Thanh B</td>
+            <td>8.5</td>
+          </tr>
+          <tr>
+            <td><a href="#" id="student-id">00000003</a></td>
+            <td>Bui</td>
+            <td>Thi C</td>
+            <td>13</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="individual-grade" id="individual-grade" style="display: none;">
+        <p class="student-info">00000001 - Nguyen Van A - Grade Report</p>
+
+        <table class="grade-report">
+          <thead>
+            <td>Grade item</td>
+            <td>Calculated weight</td>
+            <td>Grade</td>
+            <td>Range</td>
+            <td>Percentage</td>
+          </thead>
+          <tr>
+            <td>Assignment</td>
+            <td>25%</td>
+            <td>8</td>
+            <td>0 - 10</td>
+            <td>80%</td>
+          </tr>
+          <tr>
+            <td>Midterm</td>
+            <td>25%</td>
+            <td>8.5</td>
+            <td>0 - 10</td>
+            <td>85%</td>
+          </tr>
+          <tr>
+            <td>Final</td>
+            <td>40%</td>
+            <td>8</td>
+            <td>0 - 10</td>
+            <td>80%</td>
+          </tr>
+        </table>
+
+        <p class="grade-overall">Course total: 8.25</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    let student_id = document.getElementById('student-id');
+    let student_list = document.getElementById('student-list');
+    let individual_grade = document.getElementById("individual-grade");
+
+    student_id.onclick = function() {
+      student_list.style.display = "none";
+      individual_grade.style.display = "block"
+    }
+  </script>
+</body>
+
+<footer>
+  <div class="footer-container">
+    <div class="project-info">
+      <p>Advanced Programming (CO2039) Assignment</p>
+      <p>Semester 232</p>
+    </div>
+    <div class="contact-info">Contact Information</div>
+  </div>
+</footer>
