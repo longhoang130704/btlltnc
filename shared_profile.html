@@ -21,16 +21,16 @@
     </div>
     <div class="menu-bar">
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('replace-me-1')">replace-me-1</a>
+        <a href="#" class="nav-text" onclick="showContent('profile')">Profile</a>
       </div>
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('replace-me-2')">replace-me-2</a>
+        <a href="#" class="nav-text" onclick="showContent('timetable')">Timetable</a>
       </div>
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('replace-me-3')">replace-me-3</a>
+        <a href="#" class="nav-text" onclick="showContent('exam-schedule')">Exam schedule</a>
       </div>
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('replace-me-4')">replace-me-4</a>
+        <a href="#" class="nav-text" onclick="showContent('grade')">Grade</a>
       </div>
     </div>
     <div class="sidebar-footer">
@@ -41,20 +41,20 @@
   </nav>
   <!-- Content -->
   <div class="content">
-    <div class="replace-me-1 container-block" id="replace-me-1">
-        <p class="title">Replace me 1</p>
+    <div class="profile container-block" id="profile">
+        <p class="title">User's Infomation</p>
     </div>
 
-    <div class="replace-me-2 container-block hide" id="replace-me-2">
-        <p class="title">Replace me 2</p>
+    <div class="timetable container-block hide" id="timetable">
+        <p class="title">Timetable</p>
     </div>
 
-    <div class="replace-me-3 container-block hide" id="replace-me-3">
-        <p class="title">Replace me 3</p>
+    <div class="exam-schedule container-block hide" id="exam-schedule">
+        <p class="title">Exam schedule</p>
     </div>
 
-    <div class="replace-me-4 container-block hide" id="replace-me-4">
-        <p class="title">Replace me 4</p>
+    <div class="grade container-block hide" id="grade">
+        <p class="title">Grade</p>
     </div>
   </div>
 
@@ -69,6 +69,16 @@
       }
 
       document.getElementById(div_id).classList.remove('hide');
+    }
+
+    user_role = sessionStorage.getItem('user-role');
+    if (user_role != null) {
+      if (user_role.role == 'Students') {
+        // <!-- Add code -->
+      }
+      else if (user_role.role == 'Teachers') {
+        // <!-- Add code -->
+      }
     }
   </script>
 </body>

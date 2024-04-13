@@ -38,8 +38,6 @@ else {
 let user_role = JSON.parse(sessionStorage.getItem("user-role"));
 let info = JSON.parse(sessionStorage.getItem("user-info"));
 
-console.log(user_role.role);
-
 if(user_role.role == 'Admin'){
   dashboard.style.display = 'initial';
   login_but.innerHTML =  "<a href='#'>Admin</a>"; 
@@ -53,5 +51,7 @@ if(user_role.role == 'Admin'){
   login_but.innerHTML =  "<a href='#'>" + info.lastname + ' ' + info.firstname + "</a>"; 
 }
 
-let logout = document.getElementById('logout');
-logout.addEventListener('click', sessionStorage.clear());
+function logout() {
+  sessionStorage.clear();
+  window.location.href = "./login.html";
+}
