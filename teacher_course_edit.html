@@ -1,88 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Course</title>
-    <link rel="stylesheet" href="style/share.css">
-    <link rel="stylesheet" href="style/tc_course_edit.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Name - Editing</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="./style/share.css">
+  <link rel="stylesheet" href="./style/teacher_course_edit.css">
 </head>
-<body>     
-  <div class="container">
-    <div class="main-content">
-          <img src="img/background.jpg" alt="" />
-          <!---------------Header---------------->
-          <header class="header">
-            <div class="logo">LOGO</div>
-            <nav class="nav-container">
-              <ul class="nav-list">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">Courses</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">User name</a>
-                </li>
-              </ul>
-            </nav>
-          </header>
-          <!------------------Label------------------>
-          <h1 class="course-title">Course Name - Teacher name - Class</h1>
-          <!------------------Content------------------>
-          <div class="course-content">
-            <nav class="course-nav">
-              <a href="teacher_course.html" class="course-nav-link active">Course</a>
-              <a href="teacher_grade_stdl.html" class="course-nav-link">Grading</a>
-              <a href="teacher_course_edit.html" class="course-nav-link">Edit Course</a>
-            </nav>
-            <div class="general-info">
-              <h2 class="section-title">General</h2>
-              <div class="divider"></div>
-              <div class="content-item">
-                <div class="content-thumbnail"></div>
-                <h3 class="content-title">Content name</h3>
-              </div>
-              <div class="content-item-add">
-                <img src="img/add_button.png" alt="Create content icon" class="create-content-icon" />
-                <a id="create-content" class="create-content-text">Create content</a>
-              </div>
-            </div>
-          </div>
+
+<body>
+  <div class="topnav">
+    <img src="./img/logo-placeholder.svg" alt="" class="logo">
+    <ul class="menu">
+      <li class="a-container">
+        <a href="./index.html">Home</a>
+      </li>
+      <li class="a-container active">
+        <a href="#">Courses</a>
+      </li>
+    </ul>
+    <div class="a-container">
+      <a href="#">User Name</a>
     </div>
   </div>
-  <!--------------creat content--------------->
-<div class="create-window" id="create-window">
-    <section class="name-wrapper">
-        <label class="name-label">Name</label>
-        <input type="text" class="name-input" aria-label="Name input" />
-    </section>
-    <section class="type-wrapper">
-        <span class="type-label">Type</span>
-        <input type="checkbox" id="Checkbox1" class="check-box">
-        <label for="Checkbox1">Type</label>
-        <input type="checkbox" id="Checkbox2" class="check-box">
-        <label for="Checkbox2">Text</label>
-    </section>
-    <button class="upload-button">Upload file</button>
-    <button class="cancel-button" id="cancel">cancel</button>
-</div>
+
+  <div class="course-content" id="course-content">
+    <div class="course-info" id="course-info" style="font-size: 32px;">
+      <p>Course Name - Teacher Name - Class</p>
+    </div>
+
+    <div class="content-block" style="z-index: 0;">
+      <nav class="course-nav">
+        <a href="#" class="course-nav-link">Course</a>
+        <a href="#" class="course-nav-link">Grading</a>
+        <a href="#" class="course-nav-link active">Edit Course</a>
+      </nav>
+
+      <section class="body-table" id="body-table">
+        <div class="general-info">
+          <h2 class="section-title">General</h2>
+          <div class="divider"></div>
+
+          <div class="content-item">
+            <div class="content-thumbnail"></div>
+            <h3 class="content-title">Content name</h3>
+          </div>
+
+          <div class="content-create">
+            <div class="content-thumbnail">
+              <img src="./img/add_button.png" alt="">
+            </div>
+            <button type="button" id="create-content-btn">Create Content</button>
+          </div>
+        </div>
+
+        <div class="new-section">
+          <div class="create-section-btn">
+            <button>Create new section</button>
+          </div>
+          <div class="divider"></div>
+        </div>
+
+
+      </section>
+
+      <div class="create-new-content" id="create-content-panel" style="display: none;">
+        <p>Create new content</p>
+        <div class="content-name-input">
+          <div class="label">
+            <p>Content name</p>
+          </div>
+          <input type="text" placeholder="Content name" id="name-input">
+        </div>
+        <div class="content-type">
+          <div class="label">
+            <p>Type</p>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="file-checkbox" name="File" value="file">
+            <p>File</p>
+
+            <input type="checkbox" id="text-checkbox" name="Text" value="text">
+            <p>Text</p>
+          </div>
+
+        </div>
+        
+        <div class="file-upload" id="file-upload-panel" style="display: none;">
+          <input type="file" id="file-upload" placeholder="Upload file" autocomplete="off">
+        </div>
+
+        <div class="text-input" id="text-input-panel" style="display: none;">
+          <input type="text" placeholder="Enter your content">
+        </div>
+
+        <button type="button" id="go-back">Go back</button>
+        <button type="submit">Create</button>
+      </div>
+
+
+    </div>
+  </div>
+
+  <script>
+    let create_content_btn = document.getElementById("create-content-btn");
+    let go_back_btn = document.getElementById('go-back');
+    let body_table = document.getElementById('body-table');
+    let create_content_panel = document.getElementById('create-content-panel')
+
+    create_content_btn.onclick = function() {
+      body_table.style.display = "none";
+      create_content_panel.style.display = "block";
+    }
+    go_back_btn.onclick = function() {
+      body_table.style.display = "block";
+      create_content_panel.style.display = "none";
+    }
+
+    let file_checkbox = document.getElementById('file-checkbox');
+    let text_checkbox = document.getElementById('text-checkbox');
+    let file_upload_panel = document.getElementById('file-upload-panel');
+    let text_input_panel = document.getElementById('text-input-panel')
+    
+    file_checkbox.onclick = function() {
+      if (file_checkbox.checked) {
+        file_upload_panel.style.display = "block";
+      }
+      else {
+        file_upload_panel.style.display = "none"; 
+      }
+    }
+
+    text_checkbox.onclick = function() {
+      if (text_checkbox.checked) {
+        text_input_panel.style.display = "block";
+      }
+      else {
+        text_input_panel.style.display = "none"; 
+      }
+    }
+  </script>
 </body>
-<script>
-    // Lấy phần tử creat và creat_window
-    var creat = document.getElementById("create-content");
-    var creat_window = document.getElementById("create-window");
-    var close = document.getElementById("cancel");
-    
-    // Khi người dùng click vào creat, hiển thị creat_window
-    creat.onclick = function() {
-        creat_window.style.display = "flex";
-    }
-    
-    // Khi người dùng click vào nút close, đóng modal
-    close.onclick = function() {
-        creat_window.style.display = "none";
-    }
-</script>
+
+<footer>
+  <div class="footer-container">
+    <div class="project-info">
+      <p>Advanced Programming (CO2039) Assignment</p>
+      <p>Semester 232</p>
+    </div>
+    <div class="contact-info">Contact Information</div>
+  </div>
+</footer>
+
 </html>
