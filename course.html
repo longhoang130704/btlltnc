@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Page</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="./style/course.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <img src="./img/logo-placeholder.svg" alt="" class="logo">
+    <ul class="menu">
+      <li class="a-container">
+        <a href="./index.html">Home</a>
+      </li>
+      <li class="a-container active">
+        <a href="#">Courses</a>
+      </li>
+    </ul>
+    <div class="a-container">
+      <a href="#">User Name</a>
+    </div>
+  </div>
+    <div class="content-block">
+        <div class="content-top">
+            <p>Course Overview</p>
+        </div>
+        <div class="listcource">
+            <div id="content-container" class="content-container"></div>
+           </div>
+    </div>
+    <script>
+    // Số lượng div cần tạo
+    const numItems = 10;
+
+    const container = document.getElementById('content-container');
+    for (let i = 1; i <= numItems; i++) {
+        const borderdiv =document.createElement('div');
+        borderdiv.className = 'content-border';
+
+        const div = document.createElement('div');
+        div.className = 'content-item';
+        div.id = `course${i}`;
+        const thumbnailDiv = document.createElement('div');
+        thumbnailDiv.className = 'content-thumbnail';
+
+        // Tạo tiêu đề
+        const title = document.createElement('h3');
+        title.className = 'content-title';
+        // Tạo một thẻ a bên trong tiêu đề
+        const link = document.createElement('a');
+        link.href = 'ad_grade.html'; //link tới trang điểm của course
+        link.textContent = `Course id ${i}`;
+        title.appendChild(link);
+        // Tạo một thẻ p bên trong tiêu đề
+        const teacher = document.createElement('p');
+        teacher.textContent = `Course name ${i} - Teacher name ${i}`;
+        title.appendChild(teacher);
+
+        // Thêm div thumbnail và tiêu đề vào div cha
+        div.appendChild(thumbnailDiv);
+        div.appendChild(title);
+
+        // Thêm div cha vào thẻ cha
+        container.appendChild(borderdiv);
+        container.appendChild(div);
+        }
+    </script>
+</body>
+
+<footer>
+  <div class="footer-container">
+    <div class="project-info">
+      <p>Advanced Programming (CO2039) Assignment</p>
+      <p>Semester 232</p>
+    </div>
+    <div class="contact-info">Contact Information</div>
+  </div>
+</footer>
