@@ -50,8 +50,3 @@ if(user_role.role == 'Admin'){
   courses.style.display = 'initial';
   login_but.innerHTML =  "<a href='#'>" + info.lastname + ' ' + info.firstname + "</a>"; 
 }
-
-function logout() {
-  sessionStorage.clear();
-  window.location.href = "./login.html";
-}
