@@ -93,7 +93,7 @@
             <label for="teacher">
               <p>Teacher:</p>
             </label>
-            <input type="text" id="teacher" name="teacher" required autocomplete="off">
+            <select type="text" id="teacher" name="teacher" class="teacher" required autocomplete="off"></select>
           </div>
 
           <!-- Class capacity -->
@@ -108,7 +108,7 @@
             <label for="course_length">
               <p>Course length (weeks):</p>
             </label>
-            <input type="number" id="course_length" name="ourse_length" required autocomplete="off">
+            <input type="number" id="course_length" name="course_length" required autocomplete="off">
           </div>
           <!-- On weekday -->
           <div class="input_info">
@@ -265,7 +265,8 @@
       });
     }
   </script>
-  <script type="module" src="/source/createNewCourses.js"></script>
+  <script type="module" src="./source/teacherSelect.js"></script>
+  <script type="module" src="./source/createNewCourses.js"></script>
 </body>
 
 </html>

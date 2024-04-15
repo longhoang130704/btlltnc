@@ -34,17 +34,15 @@ const room_input = document.querySelector("#room");
 
 const create_button = document.querySelector(".submited");
 
-/**
- * 
- */
-
 function insertData(e) {
   e.preventDefault();
   console.log("web update");
+  // ông xem qua update(ref...) nha
   set(ref(db, `Courses/${course_id_input.value}`), {    
     [class_input.value] : {
         capacity: capacity_input.value,
         course_content: course_name_input.value,
+        // thiếu .value ở teacher_name_input
         teacher_list: teacher_name_input,
         schedule: {
             courseLength: course_length_input.value,
