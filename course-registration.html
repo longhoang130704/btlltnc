@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration</title>
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="./style/course-registration.css">
+</head>
+<body>
+  <div class="topnav">
+    <img src="./img/logo-placeholder.svg" alt="" class="logo">
+    <ul class="menu">
+      <li class="a-container">
+        <a href="./index.html">Home</a>
+      </li>
+      <li class="a-container">
+        <a href="./course-student.html">Courses</a>
+      </li>
+      <li class="a-container active">
+        <a href="./course-registration.html">Course Registration</a>
+      </li>
+    </ul>
+    <div class="a-container">
+      <a href="./user-profile.html">User Name</a>
+    </div>
+  </div>
+  
+  <div class="course-student">
+    <div class="content-container">
+      <section class="header-table">
+        <nav class="course-nav">
+          <button href="#" class="course-nav-link active" id="result-btn" onclick="showContent('result')">Registration result</button>
+          <button href="#" class="course-nav-link" id="registration-btn" onclick="showContent('registration')">Course registration</button>
+        </nav>
+      </section>
+      
+      <div id="result" class="content result">
+        <!-- Delete me -->
+        <p> Registration result (Delete me) </p>
+        <!-- Delete me -->
+      </div>
+      
+      <div id="registration" class="content registration hide">
+        <!-- Delete me -->
+        <p> Course registration (Delete me) </p>
+        <!-- Delete me -->
+      </div>
+    </div>
+  </div>
+  <script>
+    function showContent(id) {
+      let content = document.getElementsByClassName('content');
+      for (let i = 0; i < content.length; i++) {
+        if (!content[i].classList.contains('hide')) {
+          content[i].classList.add('hide');
+        }
+      }
+      document.getElementById(id).classList.remove('hide');
+    }
+  </script>
+</body>
+
+<footer>
+  <div class="footer-container">
+    <div class="project-info">
+      <p>Advanced Programming (CO2039) Assignment</p>
+      <p>Semester 232</p>
+    </div>
+    <div class="contact-info">Contact Information</div>
+  </div>
+</footer>
+</html>
