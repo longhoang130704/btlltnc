@@ -67,10 +67,11 @@ function insertData(e) {
 }
 
 //Lang nghe su kien click o createButton va goi ham de them Data
-// create_button.addEventListener('click', insertData);
+create_button.addEventListener('click', function(e) {
+    insertData(e);
+});
 document.querySelector("body").addEventListener("keydown", function (e) {
   if (e.keyCode === 13) {
     insertData(e);
-    
   }
 });
