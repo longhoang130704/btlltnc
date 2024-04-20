@@ -192,6 +192,7 @@ button {
   line-height: 28.06px;
   font-weight: 700px;
   text-align: center;
+  border-collapse: collapse;
 }
 
 
@@ -249,6 +250,11 @@ button {
 }
 /* Phần user's information */
 
+.body-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .table-infor {
   font-size: 24px;
@@ -257,8 +263,16 @@ button {
   text-align: center;
   line-height: 37.41px;
   border-collapse: collapse; 
+  width: 100%;
 }
 
+.table-infor .table-menu {
+  width: 15vw;
+}
+
+.table-infor .data-user {
+  width: 30vw;
+}
 .pad {
   padding: 8px; 
 }
@@ -273,3 +287,22 @@ button {
 .input-text {
   color: #8f8585 ;
 }
+
+.update-info-btn {
+  font-size: 16px;
+  display: block;
+  height: 30px;
+  width: 7.5vw;
+  background-color: #03075c;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.update-info-btn:hover {
+  background-color: rgb(230, 230, 230);
+  color: black;
+  cursor: pointer;
+}
+
