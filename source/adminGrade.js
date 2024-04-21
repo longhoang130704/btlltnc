@@ -34,44 +34,49 @@ get(dataCourseRef)
       const dataLength = Object.keys(data).length;
       const dataArray = Object.entries(data);
       //thong tin can them vao Frontend
+      // console.log(dataArray[0][1].Classes);
       for (let i = 0; i < dataLength; i++) {
-        const div = document.createElement("div");
-        div.className = "content-item";
-        div.id = `course${i}`;
+        let courseCode = dataArray[i][0];
+        Object.entries(dataArray[i][1].Classes).forEach((courseClass) => {
+          let classCode = courseClass[0];
+          let teacherId = courseClass[1].teacherId;
 
-        const thumbnailDiv = document.createElement("div");
-        // Thêm class "content-thumbnail" cho div thumbnail
-        thumbnailDiv.className = "content-thumbnail";
+          const div = document.createElement("div");
+          div.className = "content-item";
+          div.id = `course${i}`;
 
-        const title = document.createElement("h3");
-        const courseName = dataArray[i][1].name; //Course Name
-        title.className = 'content-title';
-        // Tạo một thẻ a bên trong tiêu đề
+          const thumbnailDiv = document.createElement("div");
+          // Thêm class "content-thumbnail" cho div thumbnail
+          thumbnailDiv.className = "content-thumbnail";
 
-        const link = document.createElement("a");
-        link.href = "ad_grade.html";
-        link.textContent = courseName;
-        title.appendChild(link);
+          const title = document.createElement("h3");
+          const courseName = `${dataArray[i][1].name} (${courseCode})`; //Course Name
+          title.className = "content-title";
+          // Tạo một thẻ a bên trong tiêu đề
 
-        const teacher = document.createElement("p");
+          const link = document.createElement("a");
+          link.href = "ad_grade.html";
+          link.textContent = courseName;
+          title.appendChild(link);
 
-        const teacherID = dataArray[i][1].teacherId; //teacher Name
-        //Them courseName vao HTML Element
+          const teacher = document.createElement("p");
+          //Them courseName vao HTML Element
 
-        get(ref(db, `Roles/Teachers/${teacherID}`)).then((snapshot) => {
-          if (snapshot.exists()) {
-            let teacherName =
-              snapshot.val().firstname + " " + snapshot.val().lastname;
-            teacher.textContent = teacherName;
-            title.appendChild(teacher);
-          }
+          get(ref(db, `Roles/Teachers/${teacherId}`)).then((snapshot) => {
+            if (snapshot.exists()) {
+              let teacherName =
+                snapshot.val().firstname + " " + snapshot.val().lastname;
+              teacher.textContent = classCode + ' - ' + teacherName;
+              title.appendChild(teacher);
+            }
+          });
+
+          div.appendChild(thumbnailDiv);
+          div.appendChild(title);
+
+          // Thêm div cha vào thẻ cha
+          container.appendChild(div);
         });
-
-        div.appendChild(thumbnailDiv);
-        div.appendChild(title);
-
-        // Thêm div cha vào thẻ cha
-        container.appendChild(div);
       }
       //Kiem tra thong tin lay duoc
       // console.log(typeof(data));

@@ -74,9 +74,13 @@ get(dataCourseRef).then((snapshot) => {
     if (snapshot.exists()) {
         const data = snapshot.val();
         //doi Object qua Array 
-        const num = Object.keys(data).length;
-        numbersOfCourseOutput.textContent = `${num} Courses`;
-        numbersOfClassOutput.textContent = `${num} Classes`;
+        const courseNum = Object.keys(data).length;
+        let classNum = 0;
+        numbersOfCourseOutput.textContent = `${courseNum} Courses`;
+        Object.entries(data).forEach((obj) => {
+            classNum += Object.keys(obj[1].Classes).length
+        })
+        numbersOfClassOutput.textContent = `${classNum} Classes`;
         //Kiem tra thong tin lay duoc
         // console.log(num);
         // console.log(typeof(data));
