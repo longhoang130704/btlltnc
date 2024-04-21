@@ -52,11 +52,11 @@
       </div>
       <div class="info">
         <p>Numbers of courses:</p>
-        <span class="numcourse">Numbers of courses</span>
+        <span id="numcourse" class="numcourse">Numbers of courses</span>
       </div>
       <div class="info">
         <p>Numbers of classes:</p>
-        <span class="numclass">Numbers of classes</span>
+        <span id="numclass" class="numclass">Numbers of classes</span>
       </div>
     </div>
   </div>
@@ -93,7 +93,8 @@
             <label for="teacher">
               <p>Teacher:</p>
             </label>
-            <select type="text" id="teacher" name="teacher" class="teacher" required autocomplete="off"></select>
+            <input type="text" id="teacher" name="teacher" class="teacher" required>
+            <!-- <select type="text" id="teacher" name="teacher" class="teacher" required autocomplete="off"></select> -->
           </div>
 
           <!-- Class capacity -->
@@ -268,6 +269,8 @@
   <script type="module" src="./source/teacherSelect.js"></script>
   <script type="module" src="./source/createNewCourses.js"></script>
   <script type="module" src="./source/createTeacherAccount.js"></script>
+  <script type="module" src="./source/adminOverall.js"></script>
+  <script type="module" src="./source/adminGrade.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import {
-    getDatabase,
-    ref,
-    set,
+  getDatabase,
+  ref,
+  set,
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -43,7 +43,8 @@ function insertData(e) {
         capacity: capacity_input.value,
         course_content: course_name_input.value,
         // thiếu .value ở teacher_name_input
-        teacher_list: teacher_name_input,
+        teacher_list: teacher_name_input.value,
+        
         schedule: {
             courseLength: course_length_input.value,
             course_date: dateInWeek_input.value,
@@ -54,7 +55,7 @@ function insertData(e) {
     },
     credit: "",
     name: course_name_input.value,
-    
+    teacherName: teacher_name_input.value,
   })
     .then(() => {
       alert("Thêm khoá học thành công");
