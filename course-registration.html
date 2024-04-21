@@ -24,7 +24,7 @@
       </li>
     </ul>
     <div class="a-container">
-      <a href="./user-profile.html">User Name</a>
+      <a href="./user-profile.html" id="user-name-a">User Name</a>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
       </section>
 
       <div id="result" class="content result">
-        <p> User name's current enrolled courses </p>
+        <p id="statement1"> User name's current enrolled courses </p>
         <div class="container">
           <table id="dynamic-table">
             <thead>
@@ -52,29 +52,15 @@
                 <th class="room">Room</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>CO2017</td>
-                <td>L01</td>
-                <td>Operating System</td>
-                <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
-                <td>B4-504</td>
-              </tr>
-              <tr>
-                <td>CO2017</td>
-                <td>L01</td>
-                <td>Operating System</td>
-                <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
-                <td>B4-504</td>
-              </tr>
+            <tbody id="student-current-courses">
             </tbody>
           </table>
         </div>
       </div>
 
       <div id="registration" class="content registration hide">
-        <input type="text" id="searchInput" onkeyup="searchCourses()" placeholder="Enter course ID to search">
-        <div class="resultseach">CO2039 - Advanced Programming - 3 credits</div>
+        <input type="text" id="searchInput" placeholder="Enter course ID to search" autocomplete="off">
+        <div class="resultseach" id="course-info">Course Information</div>
         <table id="courseTable">
           <thead>
             <tr>
@@ -85,26 +71,13 @@
               <th class="clcap">Registered/Class Capacity</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" name="course1"></td>
-              <td>CC01</td>
-              <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
-              <td>B4-504</td>
-              <td>60/60</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox" name="course2"></td>
-              <td>CC02</td>
-              <td>Thursday, 13:00 - 15:00, 08/01/2024 - 06/05/2024</td>
-              <td>B4-402</td>
-              <td>58/60</td>
-            </tr>
+          <tbody id="courseTableBody">
           </tbody>
         </table>
         <div class="footdiv">
-            <p>Select class: CC01</p>
-            <input type="submit" name="Confirm" value="Confirm" class="custom-submit">
+            <p>Select class:</p>
+            <p id="selected-class"></p>
+            <input type="submit" name="Confirm" value="Confirm" class="custom-submit" id="confirm-btn">
         </div>
       </div>
     </div>
@@ -119,7 +92,21 @@
       }
       document.getElementById(id).classList.remove('hide');
     }
+
+    function checkOnlyOneBox(id) {
+      let checkboxes = document.getElementsByClassName('checkbox');
+      for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
+      }
+      let checkbox = document.getElementById(id);
+      checkbox.checked = true;
+
+      let selected_class = document.getElementById('selected-class');
+      selected_class.innerText = id;
+    }
   </script>
+  <script type="module" src="./source/courseRegistration-View.js"></script>
+  <script type="module" src="./source/courseRegistration-Registration.js"></script>
 </body>
 
 <footer>
