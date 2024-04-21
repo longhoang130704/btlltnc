@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   getAuth,
   updatePassword,
   onAuthStateChanged
@@ -49,7 +50,7 @@ teacher_id.innerText = teacher_info.user_id.substring(
 if (teacher_info.certificate) degree.placeholder = `Currently: ${teacher_info.certificate}`;
 if (teacher_info.expertise) field.placeholder = `Currently: ${teacher_info.expertise}`;
 
-
+let cur_pass = document.getElementById('cur-password-inp');
 let new_pass = document.getElementById('password-inp');
 let confirm_pass = document.getElementById('confirm-password');
 let updateBtn = document.getElementById('updateBtn');
@@ -87,6 +88,23 @@ let updateInfo = (event) => {
     .catch((error) => {
       console.log(error.message);
     })
+  }
+  if (cur_pass.value != "") {
+    signInWithEmailAndPassword(auth, teacher_info.email, cur_pass.value)
+    .then(() => {
+      if (new_pass.value != "" && confirm_pass.value != "") {
+        if (new_pass.value == confirm_pass.value) {
+          updatePassword(auth.currentUser, new_pass.value);
+          alert("Update password successfully, please log in again");
+          sessionStorage.clear();
+          window.location.href = "../login.html";
+        }
+      }
+    })
+    .catch((error) => {
+      alert(error.message);
+    })
+    
   }
 }
 
