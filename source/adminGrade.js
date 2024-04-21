@@ -3,7 +3,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-aut
 import {
     get,
     getDatabase,
-    ref
+    ref,
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -20,39 +20,66 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 //----------------------------------------------------------------
-console.log('connect adminGrade.js')
+console.log("connect adminGrade.js");
 //----------------------------------------------------------------
 //Lay Element tu HTML va console.log ra Element
-
-
+const container = document.getElementById("content-container");
 //Lay thong tin cua Course
-const dataCourseRef = ref(db, '/Courses');
-get(dataCourseRef).then((snapshot) => {
+const dataCourseRef = ref(db, "/Courses");
+get(dataCourseRef)
+  .then((snapshot) => {
     if (snapshot.exists()) {
-        const data = snapshot.val();
-        //doi Object qua Array 
-        const dataLength = Object.keys(data).length;
-        const dataArray = Object.entries(data);
-        //thong tin can them vao Frontend
-        for (let i = 0; i < dataLength; i++) {
-            const teacherName =  dataArray[i][1].teacherName;//teacher Name
-            //Them courseName vao HTML Element
-            
-            
-            console.log("Teacher Name:", teacherName);
-            const courseName =  dataArray[i][1].name;//Course Name
-            //Them courseName vao HTML Element
+      const data = snapshot.val();
+      //doi Object qua Array
+      const dataLength = Object.keys(data).length;
+      const dataArray = Object.entries(data);
+      //thong tin can them vao Frontend
+      for (let i = 0; i < dataLength; i++) {
+        const div = document.createElement("div");
+        div.className = "content-item";
+        div.id = `course${i}`;
 
+        const thumbnailDiv = document.createElement("div");
+        // Thêm class "content-thumbnail" cho div thumbnail
+        thumbnailDiv.className = "content-thumbnail";
 
-            console.log("Course Name:", courseName);
-        }
-        //Kiem tra thong tin lay duoc
-        console.log(dataArray);
-        // console.log(typeof(data));
-        // console.log(typeof(dataLength));
+        const title = document.createElement("h3");
+        const courseName = dataArray[i][1].name; //Course Name
+        title.className = 'content-title';
+        // Tạo một thẻ a bên trong tiêu đề
+
+        const link = document.createElement("a");
+        link.href = "ad_grade.html";
+        link.textContent = courseName;
+        title.appendChild(link);
+
+        const teacher = document.createElement("p");
+
+        const teacherID = dataArray[i][1].teacherId; //teacher Name
+        //Them courseName vao HTML Element
+
+        get(ref(db, `Roles/Teachers/${teacherID}`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            let teacherName =
+              snapshot.val().firstname + " " + snapshot.val().lastname;
+            teacher.textContent = teacherName;
+            title.appendChild(teacher);
+          }
+        });
+
+        div.appendChild(thumbnailDiv);
+        div.appendChild(title);
+
+        // Thêm div cha vào thẻ cha
+        container.appendChild(div);
+      }
+      //Kiem tra thong tin lay duoc
+      // console.log(typeof(data));
+      // console.log(typeof(dataLength));
     } else {
-        console.log("No data available");
+      console.log("No data available");
     }
-}).catch((error) => {
-    console.error('Error fetching data:', error);
-});
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
+  });

@@ -44,7 +44,7 @@ function insertData(e) {
         course_content: course_name_input.value,
         // thiếu .value ở teacher_name_input
         teacher_list: teacher_name_input.value,
-        
+      
         schedule: {
             courseLength: course_length_input.value,
             course_date: dateInWeek_input.value,
@@ -55,7 +55,7 @@ function insertData(e) {
     },
     credit: "",
     name: course_name_input.value,
-    teacherName: teacher_name_input.value,
+    teacherId: teacher_name_input.value,
   })
     .then(() => {
       alert("Thêm khoá học thành công");

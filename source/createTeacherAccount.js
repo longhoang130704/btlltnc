@@ -29,12 +29,13 @@ const birthdayTeacherInput = document.querySelector('#datebirth')
 console.log("Connect ")
 
 let signUpTeacherAccount = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     createUserWithEmailAndPassword(auth, emailTeacherInput.value, emailTeacherInput.value)
         .then((userCredential) => {
+            console.log('connect')
             let promises = [
                 set(ref(db, 'Users/' + userCredential.user.uid), {
-                    role: "Tearchers",
+                    role: "Teachers",
                 }),
                 set(ref(db, 'Roles/Teachers/' + userCredential.user.uid), {
                     email: emailTeacherInput.value,
@@ -70,6 +71,7 @@ let signUpTeacherAccount = (event) => {
             console.log(error.message);
         })
 }
+
 // submitElement.addEventListener('submit', signUpTeacherAccount);
   document.querySelector('body').addEventListener('keydown', function (e) {
     if (e.keyCode === 13) {
