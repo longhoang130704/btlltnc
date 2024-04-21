@@ -267,7 +267,7 @@ button {
 }
 
 .table-infor .table-menu {
-  width: 15vw;
+  width: 20vw;
 }
 
 .table-infor .data-user {
@@ -285,7 +285,14 @@ button {
 }
 
 .input-text {
-  color: #8f8585 ;
+  font-size: 16px;
+  color: white ;
+  border: none;
+  padding-left: 15px;
+}
+
+.input-text::placeholder {
+  text-align: center;
 }
 
 .update-info-btn {

@@ -44,9 +44,10 @@ if(user_role.role == 'Admin'){
 }else if(user_role.role == 'Students'){
   course_regis.style.display = 'initial';
   courses.style.display = 'initial';
-  login_but.innerHTML =  "<a href='#'>" + info.lastname + ' ' + info.firstname + "</a>"; 
+  login_but.innerHTML =  "<a href='./student_profile.html'>" + info.lastname + ' ' + info.firstname + "</a>";
+
 
 }else if(user_role.role == 'Teachers'){
   courses.style.display = 'initial';
-  login_but.innerHTML =  "<a href='#'>" + info.lastname + ' ' + info.firstname + "</a>"; 
+  login_but.innerHTML =  "<a href='./teacher_profile.html'>" + info.lastname + ' ' + info.firstname + "</a>"; 
 }

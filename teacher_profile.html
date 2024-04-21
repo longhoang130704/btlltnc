@@ -45,31 +45,31 @@
               <tr>
                 <td class="pad table-menu">First name:</td>
                 <td class="pad data-user">
-                  <div class="infor-user">User first name</div>
+                  <div class="infor-user" id="fname">User first name</div>
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">Last name:</td>
                 <td class="pad data-user">
-                  <div class="infor-user">User last name</div>
+                  <div class="infor-user" id="lname">User last name</div>
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">Teacher ID:</td>
                 <td class="pad data-user">
-                  <div class="infor-user">User ID</div>
+                  <div class="infor-user" id="teacher-id">User ID</div>
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">Email:</td>
                 <td class="pad data-user">
-                  <div class="infor-user">User email</div>
+                  <div class="infor-user" id="teacher-mail">User email</div>
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">Date of birth:</td>
                 <td class="pad data-user">
-                  <div class="infor-user">User birthday</div>
+                  <div class="infor-user" id="teacher-dob">User birthday</div>
                 </td>
               </tr>
             </tbody>
@@ -85,31 +85,31 @@
               <tr>
                 <td class="pad table-menu">Academic degree:</td>
                 <td class="pad data-user">
-                  <div class="infor-user input-text">Ex: Bachelor</div>
+                  <input type="text" class="infor-user input-text" placeholder="Ex: Bachelor" id="degree-inp" autocomplete="off">
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu ">Specialize field:</td>
                 <td class="pad data-user">
-                  <div class="infor-user input-text">Ex: Computer Science</div>
+                  <input type="text" class="infor-user input-text" placeholder="Ex: Computer Science" id="field-inp" autocomplete="off">
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">New password:</td>
                 <td class="pad data-user">
-                  <div class="infor-user input-text">New password</div>
+                  <input type="password" class="infor-user input-text" placeholder="New password" id="password-inp" autocomplete="off">
                 </td>
               </tr>
               <tr>
                 <td class="pad table-menu">Confirm password</td>
                 <td class="pad data-user">
-                  <div class="infor-user input-text">Confirm your password</div>
+                  <input type="password" class="infor-user input-text" placeholder="Confirm your password" autocomplete="off" id="confirm-password">
                 </td>
               </tr>
             </tbody>
           </div>
         </table>
-        <button class="update-info-btn" type="submit">Update</button>
+        <button class="update-info-btn" type="submit" id="updateBtn">Update</button>
       </div>
     </div>
 
@@ -184,6 +184,7 @@
       }
     }
   </script>
+  <script type="module" src="./source/teacher_profile.js"></script>
 </body>
 
 </html>

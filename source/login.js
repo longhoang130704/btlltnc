@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 import {
     getDatabase,
     get,
@@ -32,6 +32,7 @@ const loginButton = document.querySelector('#login-button');
 let login = async (e) => { //async de su dung await
     e.preventDefault();
     try {
+        setPersistence(auth, browserSessionPersistence);
         const userCredential = await signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value);//doi hoan thanh dang nhap
         const snapshot = await get(child(dbRef, `Users/${userCredential.user.uid}`));//doi lay user role
         let user_role;
@@ -50,7 +51,10 @@ let login = async (e) => { //async de su dung await
                     firstname: roleSnapshot.val().firstname,
                     lastname: roleSnapshot.val().lastname,
                     email: roleSnapshot.val().email,
-                    birthday: roleSnapshot.val().birthday
+                    birthday: roleSnapshot.val().birthday,
+                    user_id: userCredential.user.uid,
+                    certificate: roleSnapshot.val().certificate,
+                    expertise: roleSnapshot.val().expertise
                 })
             );
         }
@@ -67,7 +71,10 @@ document.querySelector('body').addEventListener('keydown', function (e) {
     if (e.keyCode === 13) {
         loginButton.click();
     }
+
 })
+
+
 
 
 
