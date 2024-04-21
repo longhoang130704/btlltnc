@@ -55,8 +55,12 @@
         link.href = 'ad_grade.html'; //link tới trang điểm của course
         link.textContent = `Course id ${i}`;
         title.appendChild(link);
+        // Tạo một thẻ br để xuống dòng
+        const br = document.createElement('br');
+        title.appendChild(br);
         // Tạo một thẻ p bên trong tiêu đề
-        const teacher = document.createElement('p');
+        const teacher = document.createElement('a');
+        teacher.href = 'course-student.html'; //link tới trang khóa học chính
         teacher.textContent = `Course name ${i} - Teacher name ${i}`;
         title.appendChild(teacher);
 
