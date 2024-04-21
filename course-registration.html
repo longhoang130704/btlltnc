@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Registration</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="./style/course-registration.css">
+</head>
+
+<body>
+  <div class="topnav">
+    <img src="./img/logo-placeholder.svg" alt="" class="logo">
+    <ul class="menu">
+      <li class="a-container">
+        <a href="./index.html">Home</a>
+      </li>
+      <li class="a-container">
+        <a href="./course-student.html">Courses</a>
+      </li>
+      <li class="a-container active">
+        <a href="./course-registration.html">Course Registration</a>
+      </li>
+    </ul>
+    <div class="a-container">
+      <a href="./user-profile.html">User Name</a>
+    </div>
+  </div>
+
+  <div class="course-student">
+    <div class="content-container">
+      <section class="header-table">
+        <nav class="course-nav">
+          <button href="#" class="course-nav-link active" id="result-btn" onclick="showContent('result')">Registration
+            result</button>
+          <button href="#" class="course-nav-link" id="registration-btn" onclick="showContent('registration')">Course
+            registration</button>
+        </nav>
+      </section>
+
+      <div id="result" class="content result">
+        <p> User name's current enrolled courses </p>
+        <div class="container">
+          <table id="dynamic-table">
+            <thead>
+              <tr>
+                <th class="courseid">Course ID</th>
+                <th class="class">Class</th>
+                <th class="coursename">Course name</th>
+                <th class="schedule">Schedule</th>
+                <th class="room">Room</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CO2017</td>
+                <td>L01</td>
+                <td>Operating System</td>
+                <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
+                <td>B4-504</td>
+              </tr>
+              <tr>
+                <td>CO2017</td>
+                <td>L01</td>
+                <td>Operating System</td>
+                <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
+                <td>B4-504</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="registration" class="content registration hide">
+        <input type="text" id="searchInput" onkeyup="searchCourses()" placeholder="Enter course ID to search">
+        <div class="resultseach">CO2039 - Advanced Programming - 3 credits</div>
+        <table id="courseTable">
+          <thead>
+            <tr>
+              <th class="checkres">Check for registration</th>
+              <th class="cl">Class</th>
+              <th class="sch">Schedule</th>
+              <th class="roo">Room</th>
+              <th class="clcap">Registered/Class Capacity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" name="course1"></td>
+              <td>CC01</td>
+              <td>Thursday, 7:00 - 9:00, 08/01/2024 - 06/05/2024</td>
+              <td>B4-504</td>
+              <td>60/60</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="course2"></td>
+              <td>CC02</td>
+              <td>Thursday, 13:00 - 15:00, 08/01/2024 - 06/05/2024</td>
+              <td>B4-402</td>
+              <td>58/60</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="footdiv">
+            <p>Select class: CC01</p>
+            <input type="submit" name="Confirm" value="Confirm" class="custom-submit">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showContent(id) {
+      let content = document.getElementsByClassName('content');
+      for (let i = 0; i < content.length; i++) {
+        if (!content[i].classList.contains('hide')) {
+          content[i].classList.add('hide');
+        }
+      }
+      document.getElementById(id).classList.remove('hide');
+    }
+  </script>
+</body>
+
+<footer>
+  <div class="footer-container">
+    <div class="project-info">
+      <p>Advanced Programming (CO2039) Assignment</p>
+      <p>Semester 232</p>
+    </div>
+    <div class="contact-info">Contact Information</div>
+  </div>
+</footer>
+
+</html>
