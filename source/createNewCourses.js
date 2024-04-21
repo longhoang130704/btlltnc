@@ -33,7 +33,7 @@ const time_start_input = document.querySelector("#time_start");
 const time_end_input = document.querySelector("#time_end");
 const room_input = document.querySelector("#room");
 
-const create_button = document.querySelector(".submited");
+const create_button = document.getElementById('createCourseBtn');
 
 function insertData(e) {
   e.preventDefault();
@@ -65,15 +65,18 @@ function insertData(e) {
   })
   .catch((error) => {
     alert(error.message);
-  });;
+  });
+  update(ref(db, `Roles/Teachers/${teacher_name_input.value}/Courses/${course_id_input.value}`), {
+    class: class_input.value
+  })
 }
 
 //Lang nghe su kien click o createButton va goi ham de them Data
 create_button.addEventListener("click", function (e) {
   insertData(e);
 });
-document.querySelector("body").addEventListener("keydown", function (e) {
-  if (e.keyCode === 13) {
-    insertData(e);
-  }
-});
+// document.querySelector("body").addEventListener("keydown", function (e) {
+//   if (e.keyCode === 13) {
+//     insertData(e);
+//   }
+// });

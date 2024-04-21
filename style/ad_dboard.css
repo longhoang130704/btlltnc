@@ -191,14 +191,14 @@ label {
   width: 30%;
 }
 
-.content .styleCreateteacher .submited {
+.content .styleCreateteacher .submited{
   text-align: center;
   align-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-input[type="submit"] {
+button[type="submit"] {
   background-color: #1b1468;
   color: white;
   border: none;
@@ -209,7 +209,7 @@ input[type="submit"] {
   width: 15%;
 }
 
-input[type="submit"]:hover {
+button[type="submit"]:hover {
   background-color: #4923a9;
 }
 

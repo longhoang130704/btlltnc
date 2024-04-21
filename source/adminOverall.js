@@ -78,6 +78,7 @@ get(dataCourseRef).then((snapshot) => {
         let classNum = 0;
         numbersOfCourseOutput.textContent = `${courseNum} Courses`;
         Object.entries(data).forEach((obj) => {
+            // console.log(Object.keys(obj[1].Classes))
             classNum += Object.keys(obj[1].Classes).length
         })
         numbersOfClassOutput.textContent = `${classNum} Classes`;
