@@ -56,11 +56,29 @@
           </div>
         </div>
 
+        <div class="lecture-info">
+          <h2 class="section-title">Lecture</h2>
+          <div class="divider"></div>
+
+          <div class="content-item">
+            <div class="content-thumbnail"></div>
+            <h3 class="content-title">Content name</h3>
+          </div>
+
+          <div class="content-create">
+            <div class="content-thumbnail">
+              <img src="./img/add_button.png" alt="">
+            </div>
+            <button type="button" id="create-content-btn">Create Content</button>
+          </div>
+        </div>
+
         <div class="new-section">
           <div class="create-section-btn">
             <button>Create new section</button>
           </div>
           <div class="divider"></div>
+          <input type="text" id="section-name-input" style="display: none;">
         </div>
 
 
@@ -93,7 +111,7 @@
         </div>
 
         <div class="text-input" id="text-input-panel" style="display: none;">
-          <input type="text" placeholder="Enter your content">
+          <input type="text" placeholder="Enter your content" id="text-input">
         </div>
 
         <button type="button" id="go-back">Go back</button>
@@ -103,45 +121,7 @@
 
     </div>
   </div>
-
-  <script>
-    let create_content_btn = document.getElementById("create-content-btn");
-    let go_back_btn = document.getElementById('go-back');
-    let body_table = document.getElementById('body-table');
-    let create_content_panel = document.getElementById('create-content-panel')
-
-    create_content_btn.onclick = function() {
-      body_table.style.display = "none";
-      create_content_panel.style.display = "block";
-    }
-    go_back_btn.onclick = function() {
-      body_table.style.display = "block";
-      create_content_panel.style.display = "none";
-    }
-
-    let file_checkbox = document.getElementById('file-checkbox');
-    let text_checkbox = document.getElementById('text-checkbox');
-    let file_upload_panel = document.getElementById('file-upload-panel');
-    let text_input_panel = document.getElementById('text-input-panel')
-    
-    file_checkbox.onclick = function() {
-      if (file_checkbox.checked) {
-        file_upload_panel.style.display = "block";
-      }
-      else {
-        file_upload_panel.style.display = "none"; 
-      }
-    }
-
-    text_checkbox.onclick = function() {
-      if (text_checkbox.checked) {
-        text_input_panel.style.display = "block";
-      }
-      else {
-        text_input_panel.style.display = "none"; 
-      }
-    }
-  </script>
+  <script type="module" src="./source/teacher_course_edit.js"></script>
 </body>
 
 <footer>
