@@ -54,6 +54,15 @@ function insertData(e) {
       capacity: capacity_input.value,
       teacherId: teacher_name_input.value,
       // TODO: Add content 
+      ['sections'] : {
+        ['1-General'] : {
+          ['1-Content'] : {
+            type: "text",
+            name: "General Information",
+            description: "",
+          }
+        }
+      },
       schedule: {
         courseLength: course_length_input.value,
         course_date: dateInWeek_input.value,
