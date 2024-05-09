@@ -13,16 +13,25 @@
 <body>
   <div class="topnav">
     <img src="./img/logo-placeholder.svg" alt="" class="logo">
-    <ul class="menu">
-      <li class="a-container">
-        <a href="./index.html">Home</a>
-      </li>
-      <li class="a-container active">
-        <a href="#">Courses</a>
-      </li>
-    </ul>
-    <div class="a-container">
-      <a href="#">User Name</a>
+    <div class="a-container active">
+      <a href="#">Home</a>
+    </div>
+    <div class="a-container dashboard" style="display: none;">
+      <a href="./ad_dboard.html">Dashboard</a>
+    </div>
+    <div class="a-container courses" style="display: none;">
+      <a href="course.html">Courses</a>
+    </div>
+    <div class="a-container course-regis" style="display: none;">
+      <a href="./course-registration.html">Course Registration</a>
+    </div>
+
+    <div class="a-container login">
+      <a href="./login.html">Login</a>
+    </div>
+
+    <div class="a-container logout" id="logout-div" style="display: none;">
+      <a href="./login.html" id="logout" onclick="logout()">Log out</a>
     </div>
   </div>
 
@@ -106,6 +115,13 @@
       </div>
     </div>
   </div>
+  <script type="module" src="./source/index.js"></script>
+  <script>
+    function logout() {
+      sessionStorage.clear();
+      window.location.href = "./login.html";
+    }
+  </script>
   <script>
     let student_id = document.getElementById('student-id');
     let student_list = document.getElementById('student-list');

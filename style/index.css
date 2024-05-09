@@ -85,13 +85,23 @@ body {
   text-decoration: underline;
 }
 
+.page-title{
+  padding: 50px;
+  font-size:x-large;
+  text-align: center;
+  color: white;
+}
+
 .empty-div {
   display: block;
   height: 150px;
 }
 
 .footer-container {
+  width: 100%;
   display: flex;
+  position: absolute;
+  bottom: 0px;
   font-size: 24px;
   color: white;
   justify-content: space-between;

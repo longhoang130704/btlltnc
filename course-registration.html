@@ -12,19 +12,25 @@
 <body>
   <div class="topnav">
     <img src="./img/logo-placeholder.svg" alt="" class="logo">
-    <ul class="menu">
-      <li class="a-container">
-        <a href="./index.html">Home</a>
-      </li>
-      <li class="a-container">
-        <a href="./course.html">Courses</a>
-      </li>
-      <li class="a-container active">
-        <a href="./course-registration.html">Course Registration</a>
-      </li>
-    </ul>
-    <div class="a-container">
-      <a href="./user-profile.html" id="user-name-a">User Name</a>
+    <div class="a-container active">
+      <a href="./index.html">Home</a>
+    </div>
+    <div class="a-container dashboard" style="display: none;">
+      <a href="./ad_dboard.html">Dashboard</a>
+    </div>
+    <div class="a-container courses" style="display: none;">
+      <a href="course.html">Courses</a>
+    </div>
+    <div class="a-container course-regis" style="display: none;">
+      <a href="./course-registration.html">Course Registration</a>
+    </div>
+    
+    <div class="a-container login">
+      <a href="./login.html">Login</a>
+    </div>
+
+    <div class="a-container logout" id="logout-div" style="display: none;">
+      <a href="./login.html" id="logout" onclick="logout()">Log out</a>
     </div>
   </div>
 
@@ -105,6 +111,13 @@
       selected_class.innerText = id;
     }
   </script>
+  <script>
+    function logout() {
+      sessionStorage.clear();
+      window.location.href = "./login.html";
+    }
+  </script>
+  <script src="./source/index.js"></script>
   <script type="module" src="./source/courseRegistration-View.js"></script>
   <script type="module" src="./source/courseRegistration-Registration.js"></script>
 </body>

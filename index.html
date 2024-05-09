@@ -26,35 +26,25 @@
     </div>
 
     <div class="a-container login">
-      <a href="./login.html">Login</a>
+      <a href="./login.html" id="login/username">Login</a>
     </div>
 
-    <div class="a-container logout" style="display: none;">
-      <a href="" id="logout" onclick="logout()">Log out</a>
+    <div class="a-container logout" id="logout-div" style="display: none;">
+      <a href="./login.html" id="logout" onclick="logout()">Log out</a>
     </div>
   </div>
 
-  <div class="user-guide-container">
-    <div class="teacher-container container">
-      <div class="user-guide teacher">
-        <a href="#">User guide for Teachers</a>
-      </div>
-    </div>
-    <div class="student-container">
-      <div class="user-guide student">
-        <a href="#">User guide for Students</a>
-      </div>
-    </div>
-
+  <div class="page-title">
+    <h1>Learning Management System</h1>
   </div>
-  <div class="empty-div"></div>
+  
   <script>
     function logout() {
       sessionStorage.clear();
       window.location.href = "./login.html";
     }
   </script>
-  <script type="module" src="./source/index.js"></script>
+  <script src="./source/index.js"></script>
 </body>
 
 <footer>
@@ -63,7 +53,9 @@
       <p>Advanced Programming (CO2039) Assignment</p>
       <p>Semester 232</p>
     </div>
-    <div class="contact-info">Contact Information</div>
+    <div class="contact-info">
+      <p>Contact Information</p>
+    </div>
   </div>
 </footer>
 

@@ -12,16 +12,25 @@
 <body>
   <div class="topnav">
     <img src="./img/logo-placeholder.svg" alt="" class="logo">
-    <ul class="menu">
-      <li class="a-container">
-        <a href="./index.html">Home</a>
-      </li>
-      <li class="a-container active">
-        <a href="#">Courses</a>
-      </li>
-    </ul>
-    <div class="a-container">
-      <a href="#">User Name</a>
+    <div class="a-container active">
+      <a href="./index.html">Home</a>
+    </div>
+    <div class="a-container dashboard" style="display: none;">
+      <a href="./ad_dboard.html">Dashboard</a>
+    </div>
+    <div class="a-container courses" style="display: none;">
+      <a href="course.html">Courses</a>
+    </div>
+    <div class="a-container course-regis" style="display: none;">
+      <a href="./course-registration.html">Course Registration</a>
+    </div>
+
+    <div class="a-container login">
+      <a href="./login.html">Login</a>
+    </div>
+
+    <div class="a-container logout" id="logout-div" style="display: none;">
+      <a href="./login.html" id="logout" onclick="logout()">Log out</a>
     </div>
   </div>
   <div class="content-block">
@@ -32,57 +41,13 @@
       <div id="content-container" class="content-container"></div>
     </div>
   </div>
-  <!-- <script>
-    // Số lượng div cần tạo
-    if (sessionStorage.getItem('user-role') == null) {
+  <script type="module" src="./source/index.js"></script>
+  <script>
+    function logout() {
+      sessionStorage.clear();
       window.location.href = "./login.html";
     }
-
-    const numItems = 10;
-
-    const container = document.getElementById('content-container');
-
-    let course_link = "";
-
-    if (JSON.parse(sessionStorage.getItem('user-role')).role == "Teachers") course_link = "./teacher_course.html";
-    else if (JSON.parse(sessionStorage.getItem('user-role')).role == "Students") course_link = "./course-student.html";
-
-    for (let i = 1; i <= numItems; i++) {
-      const borderdiv = document.createElement('div');
-      borderdiv.className = 'content-border';
-
-      const div = document.createElement('div');
-      div.className = 'content-item';
-      div.id = `course${i}`;
-      const thumbnailDiv = document.createElement('div');
-      thumbnailDiv.className = 'content-thumbnail';
-
-      // Tạo tiêu đề
-      const title = document.createElement('h3');
-      title.className = 'content-title';
-      // Tạo một thẻ a bên trong tiêu đề
-      const link = document.createElement('a');
-      link.href = course_link; //link tới trang điểm của course
-      link.textContent = `Course id ${i}`;
-      title.appendChild(link);
-      // Tạo một thẻ br để xuống dòng
-      const br = document.createElement('br');
-      title.appendChild(br);
-      // Tạo một thẻ p bên trong tiêu đề
-      const teacher = document.createElement('a');
-      teacher.href = course_link; //link tới trang khóa học chính
-      teacher.textContent = `Course name ${i} - Teacher name ${i}`;
-      title.appendChild(teacher);
-
-      // Thêm div thumbnail và tiêu đề vào div cha
-      div.appendChild(thumbnailDiv);
-      div.appendChild(title);
-
-      // Thêm div cha vào thẻ cha
-      container.appendChild(borderdiv);
-      container.appendChild(div);
-    }
-  </script> -->
+  </script>
   <script type="module" src="./source/course_list.js"></script>
 </body>
 
