@@ -28,7 +28,7 @@
         <a href="#" class="nav-text" onclick="showContent('createteacher')">Create teacher account </a>
       </div>
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('grade')">Grade</a>
+        <a href="#" class="nav-text" onclick="showContent('grade'), showGradeItem()">Grade</a>
       </div>
     </div>
     <div class="sidebar-footer">
@@ -147,9 +147,11 @@
           </div>
           <!-- Room -->
           <div class="input_info">
-                        <label for="room"><p>Room:</p></label>
-                        <input type="text" id="room" name="room" required>
-                    </div>                  
+            <label for="room">
+              <p>Room:</p>
+            </label>
+            <input type="text" id="room" name="room" required>
+          </div>
           <div class="submited">
             <button type="submit" class="submited" id="createCourseBtn">Create</button>
           </div>
@@ -210,6 +212,20 @@
       <div class="listcource">
         <div id="content-container"></div>
       </div>
+
+      <div class="detailGradeList" id="detailGradeList" style="display: none;">
+        <h1 id="courseName"></h1>
+        <p id="class-teacher"></p>
+        <table>
+          <thead>
+            <td id="student-name">Tên sinh viên</td>
+            <td id="student-id">MSSV</td>
+            <td class="student-grade">Điểm trung bình (thang 4.0)</td>
+            <td class="student-grade">Điểm trung bình (thang 10.0)</td>
+          </thead>
+        </table>
+        <button id="exportCSV">Export file .csv</button>
+      </div>
     </div>
   </div>
   <script>
@@ -224,7 +240,22 @@
       // Show the selected content
       document.getElementById(contentId + 'Content').classList.add('active');
     }
-    
+
+    function hideGradeItem() {
+      document.querySelectorAll(".content-item").forEach(function (content) {
+        content.setAttribute('style', "display: none");
+      })
+      document.getElementById('detailGradeList').removeAttribute('style');
+      document.getElementById('detailGradeList').setAttribute('style', 'display:flex');
+    }
+
+    function showGradeItem() {
+      document.querySelectorAll(".content-item").forEach(function (content) {
+        content.setAttribute('style', "display: flex");
+      })
+      document.getElementById('detailGradeList').removeAttribute('style');
+      document.getElementById('detailGradeList').setAttribute('style', 'display:none');
+    }
   </script>
   <script type="module" src="./source/teacherSelect.js"></script>
   <script type="module" src="./source/createNewCourses.js"></script>

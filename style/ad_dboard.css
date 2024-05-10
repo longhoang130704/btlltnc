@@ -347,3 +347,51 @@ select {
 .content .styleGrade .listcource .content-item .content-title p {
   font-size: 100%;
 }
+
+.content-item.show {
+  display: initial;
+}
+
+.content-item.hide {
+  display: none;
+}
+
+.detailGradeList {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 80%;
+  position: absolute;
+  top: 20px;
+  border-collapse: collapse;
+  border-color: white;
+  color: white;
+  font-size: 18px;
+}
+
+table {
+  padding: 10px;
+}
+
+table td {
+  border-bottom: white solid 2px;
+}
+
+table thead td {
+  text-align: center;
+}
+
+td#student-name {
+  width: 200px
+}
+
+td#student-id {
+  width: 100px;
+}
+
+td.student-grade {
+  width: 175px;
+}
