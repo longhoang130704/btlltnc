@@ -55,7 +55,7 @@ get(dataCourseRef)
           // Tạo một thẻ a bên trong tiêu đề
 
           const link = document.createElement("a");
-          link.href = "#";
+          link.href = "./ad_grade.html";
           link.setAttribute('onclick','hideGradeItem(), foo()')
           link.id = `${courseCode}-${classCode}`;
           link.textContent = courseName;
@@ -175,9 +175,10 @@ get(dataCourseRef).then((snapshot) => {
       })
       // grades[courseCode] = "1";
     }
-    console.log(JSON.parse(JSON.stringify(grades)));
-    localStorage.setItem('gradeItems', grades);
-    sessionStorage.setItem('gradeItems', JSON.stringify(grades));
+    console.log(grades);
+    // console.log(JSON.parse(JSON.stringify(grades)));
+    // localStorage.setItem('gradeItems', grades);
+    // sessionStorage.setItem('gradeItems', JSON.stringify(grades));
   }
 
 })

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Management System - BTL LTNC</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+  <link rel="stylesheet" href="style/ad_dboard_grade.css">
+</head>
+
+<body>
+  <nav class="sidebar" id="sidebar">
+    <header>
+      <img src="img/logo-placeholder.svg" class="logo">
+    </header>
+    <div class="roleuser">
+      <p>Admin</p>
+    </div>
+    <div class="menu-bar">
+      <div class="nav-link active">
+        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('overall')">Overall</a>
+      </div>
+      <div class="nav-link active">
+        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('course')">Create new course</a>
+      </div>
+      <div class="nav-link active">
+        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('createteacher')">Create teacher account </a>
+      </div>
+      <div class="nav-link active">
+        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('grade'), showGradeItem()">Grade</a>
+      </div>
+    </div>
+    <div class="sidebar-footer">
+      <div class="nav-link active">
+        <a href="./index.html" class="nav-text">Home</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Content -->
+  <div class="content" id="gradeContent">
+    <div class="styleGrade">
+      <div class="detailGradeList" id="detailGradeList">
+        <h1 id="courseName"></h1>
+        <p id="class-teacher"></p>
+        <table>
+          <thead>
+            <td id="student-name">Tên sinh viên</td>
+            <td id="student-id">MSSV</td>
+            <td class="student-grade">Điểm trung bình (thang 4.0)</td>
+            <td class="student-grade">Điểm trung bình (thang 10.0)</td>
+          </thead>
+        </table>
+        <button id="exportCSV";">Export file .csv</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Function to show the corresponding content and hide others
+    function showContent(contentId) {
+      // Hide all content
+      var contents = document.querySelectorAll('.content');
+      contents.forEach(function (content) {
+        content.classList.remove('active');
+      });
+
+      // Show the selected content
+      document.getElementById(contentId + 'Content').classList.add('active');
+    }
+
+    function hideGradeItem() {
+      document.querySelectorAll(".content-item").forEach(function (content) {
+        content.setAttribute('style', "display: none");
+      })
+      document.getElementById('detailGradeList').removeAttribute('style');
+      document.getElementById('detailGradeList').setAttribute('style', 'display:flex');
+    }
+
+    function showGradeItem() {
+      document.querySelectorAll(".content-item").forEach(function (content) {
+        content.setAttribute('style', "display: flex");
+      })
+      document.getElementById('detailGradeList').removeAttribute('style');
+      document.getElementById('detailGradeList').setAttribute('style', 'display:none');
+    }
+  </script>
+  
+</body>
+
+</html>
