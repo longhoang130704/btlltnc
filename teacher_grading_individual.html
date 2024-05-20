@@ -48,70 +48,18 @@
         <a href="./teacher_course_edit.html" class="course-nav-link">Edit Course</a>
       </nav>
 
-      <div class="student-list" id="student-list">
-        <table id="student-list-table">
-          <thead>
-            <td>Student ID</td>
-            <td>First name</td>
-            <td>Last name</td>
-            <td>Overall Grade</td>
-          </thead>
-          <!-- <tr>
-            <td><a href="#" id="student-id">00000001</a></td>
-            <td>Nguyen</td>
-            <td>Van A</td>
-            <td>Not found</td>
-          </tr>
-          <tr>
-            <td><a href="#" id="student-id">00000002</a></td>
-            <td>Tran</td>
-            <td>Thanh B</td>
-            <td>8.5</td>
-          </tr>
-          <tr>
-            <td><a href="#" id="student-id">00000003</a></td>
-            <td>Bui</td>
-            <td>Thi C</td>
-            <td>13</td>
-          </tr> -->
-        </table>
-      </div>
+      <div class="individual-grade" id="individual-grade" style="width: 90%; display:flex; flex-direction: column; justify-content: center">
+        <p class="student-info" id="student-info">00000001 - Nguyen Van A - Grade Report</p>
 
-      <div class="individual-grade" id="individual-grade" style="display: none;">
-        <p class="student-info">00000001 - Nguyen Van A - Grade Report</p>
-
-        <table class="grade-report">
+        <table class="grade-report" id="grade-report">
           <thead>
-            <td>Grade item</td>
-            <td>Calculated weight</td>
-            <td>Grade</td>
-            <td>Range</td>
-            <td>Percentage</td>
+            <td style="width: 30%;">Grade item</td>
+            <td style="width: 30%;">Calculated weight</td>
+            <td style="width: 20%;">Grade</td>
           </thead>
-          <tr>
-            <td>Assignment</td>
-            <td>25%</td>
-            <td>8</td>
-            <td>0 - 10</td>
-            <td>80%</td>
-          </tr>
-          <tr>
-            <td>Midterm</td>
-            <td>25%</td>
-            <td>8.5</td>
-            <td>0 - 10</td>
-            <td>85%</td>
-          </tr>
-          <tr>
-            <td>Final</td>
-            <td>40%</td>
-            <td>8</td>
-            <td>0 - 10</td>
-            <td>80%</td>
-          </tr>
         </table>
 
-        <p class="grade-overall">Course total: 8.25</p>
+        <button id="updateBtn" type="submit">Update</button>
       </div>
     </div>
   </div>
@@ -120,19 +68,6 @@
     function logout() {
       sessionStorage.clear();
       window.location.href = "./login.html";
-    }
-  </script>
-  <script>
-    let student_id = document.getElementById('student-id');
-    let student_list = document.getElementById('student-list');
-    let individual_grade = document.getElementById("individual-grade");
-
-    function saveCurrent(studentId, studentName) {
-      let obj = {
-        studentID: studentId,
-        studentName: studentName
-      }
-      sessionStorage.setItem('currentStudent', JSON.stringify(obj));
     }
   </script>
   <script type="module" src="./source/course-content.js"></script>

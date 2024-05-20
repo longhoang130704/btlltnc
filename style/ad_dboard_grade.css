@@ -125,26 +125,21 @@ table {
   font-size: 18px;
 }
 
+p {
+  font-size: 18px;
+}
+
 table {
   padding: 10px;
 }
 
 table td {
   border-bottom: white solid 2px;
+  text-align: center;
+  height: 36px;
+  padding: 0px 10px;
 }
 
 table thead td {
   text-align: center;
-}
-
-td#student-name {
-  width: 200px
-}
-
-td#student-id {
-  width: 100px;
-}
-
-td.student-grade {
-  width: 175px;
 }

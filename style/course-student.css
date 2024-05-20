@@ -180,13 +180,7 @@
 
 .section-title {
     margin-top: 30px;
-    font: 32px;
-    text-align: left;
-}
-
-.section-title-2 {
-    margin-top: 10px;
-    font: 32px;
+    font-size: 32px;
     text-align: left;
 }
 
@@ -224,6 +218,17 @@
     flex-grow: 1;
     flex-basis: auto;
     margin: auto 0;
+    font-size: 24px;
+}
+
+a.content-title {
+  color: white;
+  text-decoration: none;
+}
+
+a.content-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .course-info {

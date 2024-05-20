@@ -33,6 +33,7 @@
       <a href="./login.html" id="logout" onclick="logout()">Log out</a>
     </div>
   </div>
+
   <div class="content-block">
     <div class="content-top">
       <p>Course Overview</p>
@@ -49,6 +50,15 @@
     }
   </script>
   <script type="module" src="./source/course_list.js"></script>
+  <script>
+    function saveClassInfo(course_id, course_class) {
+      let currentClass = {
+        course_id: course_id,
+        course_class: course_class,
+      }
+      sessionStorage.setItem("currentClass", JSON.stringify(currentClass));
+    }
+  </script>
 </body>
 
 <footer>

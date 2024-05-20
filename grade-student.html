@@ -38,7 +38,7 @@
   <div class="course-student">
     <section class="name-table">
       <div>
-        <p>Course Name - Teacher Name - Class</p>
+        <p id="course-info"></p>
       </div>
     </section>
     <div class="input-container">
@@ -48,49 +48,16 @@
           <a href="#" class="course-nav-link active">Grade</a>
         </nav>
       </section>
-      <section class="body-table">
-        <table class="style-table">
+      <section style="width: 100%; display: flex; justify-content: center;" class="body-table">
+        <table style="width: 80%;" class="style-table">
             <thead>
                 <tr>
-                    <th>Grade item</th>
-                    <th>Calculated weight</th>
-                    <th>Grade</th>
-                    <th>Range</th>
-                    <th>Percentage</th>
+                    <th style="width: 30%;">Grade item</th>
+                    <th style="width: 30%;">Calculated weight</th>
+                    <th style="width: 30%;">Grade</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Quiz</td>
-                    <td>10%</td>
-                    <td>10</td>
-                    <td>0 - 10</td>
-                    <td>100%</td>
-                </tr>
-                <tr>
-                    <td>Assignment</td>
-                    <td>25%</td>
-                    <td>8</td>
-                    <td>0 - 10</td>
-                    <td>80%</td>
-                </tr>
-                <tr>
-                    <td>Midterm</td>
-                    <td>25%</td>
-                    <td>8.5</td>
-                    <td>0 - 10</td>
-                    <td>85%</td>
-                </tr>
-                <tr>
-                    <td class="no-border">Final</td>
-                    <td class="no-border">40%</td>
-                    <td class="no-border">8</td>
-                    <td class="no-border">0 - 10</td>
-                    <td class="no-border">80%</td>
-                </tr>
-                <tr>
-                    <td class="no-border course-total">Course total: 8.25</td>
-                </tr>
+            <tbody id="grade_table">
             </tbody>                
         </table>
       </section>
@@ -100,6 +67,7 @@
 
   <div class="empty-div"></div>
   <script src="./source/index.js"></script>
+  <script type="module" src="./source/course-content.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
 </body>
 

@@ -42,7 +42,7 @@ let searchCourse = (event) => {
       while (childs.length > 0) {
         courseTable.removeChild(childs[0]);
       }
-
+      
       Object.entries(course.Classes).forEach((courseClass) => {
         let row = document.createElement("tr");
         row.classList.add("courseTableBody-Child");
@@ -110,31 +110,47 @@ let registerCourse = (event) => {
           });
         }
       })
-      .then(() => {
-        update(
-          ref(
-            db,
-            `Courses/${searchInput.value}/Classes/${selected_class.innerText}/studentIds`
-          ),
-          {
-            [user_info.user_id]: "",
-          }
-        ).catch((error) => {
-          alert(error.message);
-        });
-
-        update(ref(db, `Roles/Students/${user_info.user_id}/Courses`), {
-          [searchInput.value]: {
-            [selected_class.innerText]: "",
-          },
-        })
-          .then(() => {
-            alert("Đăng ký thành công");
-          })
-          .catch((error) => {
+    get(child(dbRef, `Courses/${searchInput.value}/GradeFrame`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log("break");
+          let grade = snapshot.val();
+          if (grade["activityRatio"] != null) grade["activityGrade"] = "";
+          if (grade["labsRatio"] != null) grade["labsGrade"] = "";
+          if (grade["projectsAssignmentRatio"] != null)
+            grade["projectsAssignmentGrade"] = "";
+          if (grade["midtermRatio"] != null) grade["midtermGrade"] = "";
+          if (grade["finalRatio"] != null) grade["finalGrade"] = "";
+          update(
+            ref(
+              db,
+              `Courses/${searchInput.value}/Classes/${selected_class.innerText}/studentIds`
+            ),
+            {
+              [user_info.user_id]: { ["grades"]: grade },
+            }
+          ).catch((error) => {
             alert(error.message);
           });
-      });
+          update(ref(db, `Roles/Students/${user_info.user_id}/Courses`), {
+            [searchInput.value]: {
+              [selected_class.innerText]: {
+                ["grades"]: grade,
+              },
+            },
+          })
+            .then(() => {
+              alert("Đăng ký thành công");
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        }
+        else {
+          console.log("BUG");
+        }
+      }
+    );
   } else {
     alert("Hãy chọn một lớp");
   }

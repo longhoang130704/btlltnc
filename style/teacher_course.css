@@ -71,3 +71,13 @@
 .course-info {
   margin-bottom: 25px;
 }
+
+a.content-title {
+  color: white;
+  text-decoration: none;
+}
+
+a.content-title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

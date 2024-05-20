@@ -37,7 +37,7 @@
 
   <div class="course-content">
     <div class="course-info" style="font-size: 32px;">
-      <p>Course Name - Teacher Name - Class</p>
+      <p id="course-info"></p>
     </div>
 
     <div class="content-block">
@@ -47,32 +47,7 @@
           <a href="./teacher_course_edit.html" class="course-nav-link">Edit Course</a>
         </nav>
 
-      <section class="body-table">
-        <div class="general-info">
-          <h2 class="section-title">General</h2>
-          <div class="divider"></div>
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-        </div>
-
-        <div class="lecture-info">
-          <h2 class="section-title-2">Lecture</h2>
-          <div class="divider"></div>
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-        </div>
+      <section class="body-table" id="classContent">
       </section>
 
     </div>
@@ -84,7 +59,8 @@
       window.location.href = "./login.html";
     }
   </script>
-  <script type="module" src="./source/course-student.js"></script>
+  <!-- <script type="module" src="./source/course-student.js"></script> -->
+  <script type="module" src="./source/course-content.js"></script>
 </body>
 
 <footer>

@@ -26,10 +26,11 @@ const firstNameTeacherInput = document.querySelector('#fnameteacher')
 const lastNameTeacherInput = document.querySelector('#lnameteacher')
 const emailTeacherInput = document.querySelector('#emailteacher')
 const birthdayTeacherInput = document.querySelector('#datebirth')
-console.log("Connect ")
+let createTeacherAccountBtn = document.getElementById('createTeacherAccount');
+// console.log("Connect ")
 
 let signUpTeacherAccount = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     createUserWithEmailAndPassword(auth, emailTeacherInput.value, emailTeacherInput.value)
         .then((userCredential) => {
             console.log('connect')
@@ -44,21 +45,6 @@ let signUpTeacherAccount = (event) => {
                     birthday: birthdayTeacherInput.value,
                 })
             ];
-            sessionStorage.setItem(
-                //luu role vao session storage
-                "user-role",
-                JSON.stringify({ role: "Teachers" })
-            );
-            sessionStorage.setItem(
-                //luu thong tin user vao session storage
-                "user-info",
-                JSON.stringify({
-                    firstname: firstNameTeacherInput.value,
-                    lastname: lastNameTeacherInput.value,
-                    email: emailTeacherInput.value,
-                    birthday: birthdayTeacherInput.value,
-                })
-            );
             return Promise.all(promises);
         })
         .then(() => {
@@ -73,8 +59,10 @@ let signUpTeacherAccount = (event) => {
 }
 
 // submitElement.addEventListener('submit', signUpTeacherAccount);
-  document.querySelector('body').addEventListener('keydown', function (e) {
-    if (e.keyCode === 13) {
-        signUpTeacherAccount();
-    }
-  })
+    // createTeacherAccountBtn.addEventListener('click', signUpTeacherAccount());
+    document.getElementById('createTeacherAccountForm').addEventListener('submit', signUpTeacherAccount);
+//     document.getElementById('createteacherContent').addEventListener('keydown', function (e) {
+//     if (e.keyCode === 13) {
+//         signUpTeacherAccount();
+//     }
+//   })

@@ -79,7 +79,7 @@ get(dataCourseRef).then((snapshot) => {
         numbersOfCourseOutput.textContent = `${courseNum} Courses`;
         Object.entries(data).forEach((obj) => {
             // console.log(Object.keys(obj[1].Classes))
-            classNum += Object.keys(obj[1].Classes).length
+            if (obj[1].Classes != null) classNum += Object.keys(obj[1].Classes).length
         })
         numbersOfClassOutput.textContent = `${classNum} Classes`;
         //Kiem tra thong tin lay duoc

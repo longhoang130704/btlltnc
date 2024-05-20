@@ -68,7 +68,7 @@ async function load_teacher_course() {
         // Tạo một thẻ a bên trong tiêu đề
         const link = document.createElement("a");
         link.href = course_link; //link tới trang điểm của course
-
+        link.setAttribute('onClick', `saveClassInfo("${course_id}", "${course_class}")`)
         let course_name = "";
         get(child(dbRef, `Courses/${course_id}/name`)).then((snapshot) => {
           if (snapshot.exists()) {

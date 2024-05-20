@@ -213,11 +213,11 @@ body {
 }
 
 #dynamic-table .coursename {
-  width: 13%;
+  width: 33%; 
 }
 
 #dynamic-table .schedule {
-  width: 50%;
+  width: 30%;
 }
 
 #dynamic-table .room {

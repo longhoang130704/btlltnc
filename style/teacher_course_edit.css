@@ -20,10 +20,13 @@
     left: 270px;
 }
 
-.section-title {
+.sectionTitle {
     margin-top: 30px;
-    font: 32px;
+    font-size: 32px;
     text-align: left;
+}
+h2 {
+    font-size: 32px;
 }
 
 .divider {
@@ -82,6 +85,7 @@
     flex-grow: 1;
     flex-basis: auto;
     margin: auto 0;
+    font-size: 24px;
 }
 
 .new-section {
@@ -97,7 +101,7 @@
 
 .new-section .create-section-btn button {
     padding: 0;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     background-color: transparent;
     border: none;
@@ -121,19 +125,21 @@
     padding: 20px;
 }
 
-.content-name-input, .content-type {
+.content-name-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.content-type {
-    justify-content: left;
+.content-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.create-new-content .content-name-input input {
+input.content-input {
     width: 75%;
-    height: 36px;
+    height: 30px;
     align-self: center;
     border: none;
     border-radius: 5px;
@@ -159,33 +165,8 @@
     margin-top: 10px;
 }
 
-.content-name-input input{
+.content-input{
     text-align: left;
-}
-
-.content-type input {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.content-type .checkbox-container p {
-    margin-right: 30px;
-}
-
-.file-upload {
-    background-color: #388FE0;  
-    border-radius: 5px;
-    height: 100px;
-    justify-content: center;
-}
-
-.file-upload input {
-    padding-top: 30px;
-    font-size: 24px;
-}
-
-.file-upload input:hover {
-    cursor: pointer;
 }
 
 .text-input input {
@@ -217,6 +198,83 @@
     text-decoration: underline;
 }
 
+.content-item a {
+    color: white;
+    text-decoration: none;
+}
+.content-item a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#sectionPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+#section-name-input {
+    background-color: #388fe0;
+    color: white;
+    height: 32px;
+    font-size: 24px;
+    border-style: none;
+    margin-top: 5px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+#section-name-btn {
+    background-color: #00116a;
+    color: white;
+    height: 32px;
+    font-size: 24px;
+    border-radius: 5px;
+    width: 15%;
+    margin: 0px 10px;
+    align-self: center;
+    border-style: none;
+}
+
+#section-name-btn:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+}
+
+.sectionTitle {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    button {
+        height: 30px;
+        font-size: 18px;
+        background-color: #00116a;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+    }
+    button:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+}
+
+.content-item button {
+    height: 36px;
+    align-self: center;
+    font-size: 18px;
+    background-color: #00116a;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+}
+
+.content-item button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 
 

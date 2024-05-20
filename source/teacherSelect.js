@@ -43,3 +43,27 @@ function import_teacher(db, select_teacher) {
 }
 
 import_teacher(db, select_teacher);
+
+let select_course = document.getElementById('courseid');
+
+function import_courseID(db, select_course) {
+  get(child(dbref, `Courses/`))
+  .then((snapshot) => {
+    if (snapshot.exists) {
+      // console.log(snapshot.val());
+      Object.entries(snapshot.val()).forEach((courseID) => {
+        // console.log(courseID[0]);
+        let option = document.createElement('option');
+        option.value = courseID[0];
+        option.innerText = courseID[0];
+        select_course.appendChild(option);
+      })
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+}
+
+import_courseID(db, select_course);
+

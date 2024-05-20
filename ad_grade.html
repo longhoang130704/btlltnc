@@ -19,16 +19,16 @@
     </div>
     <div class="menu-bar">
       <div class="nav-link active">
-        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('overall')">Overall</a>
+        <a href="./ad_dboard.html" class="nav-text" onclick="">Overall</a>
       </div>
       <div class="nav-link active">
-        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('course')">Create new course</a>
+        <a href="./ad_dboard.html" class="nav-text" onclick="">Create new course</a>
       </div>
       <div class="nav-link active">
-        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('createteacher')">Create teacher account </a>
+        <a href="./ad_dboard.html" class="nav-text" onclick="">Create teacher account </a>
       </div>
       <div class="nav-link active">
-        <a href="./ad_dboard.html" class="nav-text" onclick="showContent('grade'), showGradeItem()">Grade</a>
+        <a href="./ad_dboard.html" class="nav-text" onclick="">Grade</a>
       </div>
     </div>
     <div class="sidebar-footer">
@@ -45,46 +45,32 @@
         <p id="class-teacher"></p>
         <table>
           <thead>
-            <td id="student-name">Tên sinh viên</td>
-            <td id="student-id">MSSV</td>
-            <td class="student-grade">Điểm trung bình (thang 4.0)</td>
-            <td class="student-grade">Điểm trung bình (thang 10.0)</td>
+            <td id="student-name" style="width: 30%">Student name</td>
+            <td id="student-id" style="width: 20%;">Student ID</td>
+            <td id="course-class" style="width: 10%;">Class</td>
+            <td id="GPA-4.0" style="width: 20%;">
+              <p>GPA</p>
+              <p>(4.0 scale)</p>
+            </td>
+            <td id="GPA-10.0" style="width: 20%;">
+              <p>GPA</p>
+              <p>(10.0 scale)</p>
+            </td>
           </thead>
+          <tbody id="grade-table">
+            <!-- <tr>
+              <td>Test student</td>
+              <td>2211694</td>
+              <td>L01</td>
+              <td>A</td>
+              <td>9.4</td>
+            </tr> -->
+          </tbody>
         </table>
-        <button id="exportCSV";">Export file .csv</button>
       </div>
     </div>
   </div>
-  <script>
-    // Function to show the corresponding content and hide others
-    function showContent(contentId) {
-      // Hide all content
-      var contents = document.querySelectorAll('.content');
-      contents.forEach(function (content) {
-        content.classList.remove('active');
-      });
-
-      // Show the selected content
-      document.getElementById(contentId + 'Content').classList.add('active');
-    }
-
-    function hideGradeItem() {
-      document.querySelectorAll(".content-item").forEach(function (content) {
-        content.setAttribute('style', "display: none");
-      })
-      document.getElementById('detailGradeList').removeAttribute('style');
-      document.getElementById('detailGradeList').setAttribute('style', 'display:flex');
-    }
-
-    function showGradeItem() {
-      document.querySelectorAll(".content-item").forEach(function (content) {
-        content.setAttribute('style', "display: flex");
-      })
-      document.getElementById('detailGradeList').removeAttribute('style');
-      document.getElementById('detailGradeList').setAttribute('style', 'display:none');
-    }
-  </script>
-  
+  <script type="module" src="./source/adminGrade.js"></script>
 </body>
 
 </html>

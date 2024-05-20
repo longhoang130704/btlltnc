@@ -22,7 +22,10 @@
         <a href="#" class="nav-text" onclick="showContent('overall')">Overall</a>
       </div>
       <div class="nav-link active">
-        <a href="#" class="nav-text" onclick="showContent('course')">Create new course</a>
+        <a href="#" class="nav-text" onclick="showContent('createCourse')">Create a new course</a>
+      </div>
+      <div class="nav-link active">
+        <a href="#" class="nav-text" onclick="showContent('course')">Create a new class</a>
       </div>
       <div class="nav-link active">
         <a href="#" class="nav-text" onclick="showContent('createteacher')">Create teacher account </a>
@@ -60,20 +63,20 @@
       </div>
     </div>
   </div>
-  <div class="content" id="courseContent">
+  <div class="content" id="createCourseContent">
     <div class="styleCourse">
       <div class="creatline">
-        <p>Create new course</p>
+        <p>Create a new course</p>
       </div>
       <!-- Course Content -->
       <div class="creatCourse">
-        <form method="post">
+        <form id="createCourseForm">
           <!-- CourseID -->
           <div class="input_info">
-            <label for="courseid">
-              <p>CourseID:</p>
+            <label for="newCourseId">
+              <p>Course ID:</p>
             </label>
-            <input type="text" id="courseid" name="courseid" required autocomplete="off">
+            <input type="text" id="newCourseID" required autocomplete="off">
           </div>
           <div class="input_info">
             <label for="course-name">
@@ -86,6 +89,69 @@
               <p>Credits:</p>
             </label>
             <input type="number" id="course-credit" name="course-credit" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <label for="course-syllabus">
+              <p>Course Syllabus Link:</p>
+            </label>
+            <input type="url" id="course-syllabus" name="course-syllabus" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <p style="font-size: 16pt; text-decoration: underline;">Evaluation form & ratio</p>
+          </div>
+          <div class="input_info">
+            <label for="activity">
+              <p>In-class activities</p>
+            </label>
+            <input type="number" id="activity" name="activity" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <label for="labs">
+              <p>Labs</p>
+            </label>
+            <input type="number" id="labs" name="labs" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <label for="projects-assignment">
+              <p>Projects or Assignments</p>
+            </label>
+            <input type="number" id="projects-assignment" name="projects-assignment" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <label for="midterm">
+              <p>Midterm Exam</p>
+            </label>
+            <input type="number" id="midterm" name="midterm" required autocomplete="off">
+          </div>
+          <div class="input_info">
+            <label for="final">
+              <p>Final Exam</p>
+            </label>
+            <input type="number" id="final" name="final" required autocomplete="off">
+          </div>
+          <!-- <div class="submited">
+            <button type="submit" class="submited" id="createNewCourseBtn">Create</button>
+          </div> -->
+          <button type="submit" class="submited" id="createNewCourseBtn">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="content" id="courseContent">
+    <div class="styleCourse">
+      <div class="creatline">
+        <p>Create new class</p>
+      </div>
+      <!-- Course Content -->
+      <div class="creatCourse">
+        <form method="post">
+          <!-- CourseID -->
+          <div class="input_info">
+            <label for="courseid">
+              <p>CourseID:</p>
+            </label>
+            <select name="courseid" id="courseid"></select>
+            <!-- <input type="text" id="courseid" name="courseid" required autocomplete="off"> -->
           </div>
           <!-- Class -->
           <div class="input_info">
@@ -162,7 +228,7 @@
   <div class="content" id="createteacherContent">
     <div class="styleCreateteacher">
       <!-- Createteacher item -->
-      <div>
+      <form id="createTeacherAccountForm">
         <div class="creatline">
           <p>Create teacher account</p>
         </div>
@@ -170,40 +236,31 @@
           <label for="fnameteacher">
             <p>First name:</p>
           </label>
-          <input type="text" name="First name" id="fnameteacher" required>
+          <input type="text" name="First name" id="fnameteacher" required autocomplete="off">
         </div>
         <div class="input_info">
           <label for="lnameteacher">
             <p>Last name:</p>
           </label>
-          <input type="text" name="Last name" id="lnameteacher" required>
+          <input type="text" name="Last name" id="lnameteacher" required autocomplete="off">
         </div>
         <div class="input_info">
           <label for="emailteacher">
             <p>Email:</p>
           </label>
-          <input type="text" name="Email" id="emailteacher" required>
+          <input type="text" name="Email" id="emailteacher" required autocomplete="off">
         </div>
         <div class="input_info">
           <label for="datebirth">
             <p>Date of birth:</p>
           </label>
-          <input type="date" name="Date of birth" id="datebirth" required>
+          <input type="date" name="Date of birth" id="datebirth" required autocomplete="off">
         </div>
-        <div class="submited"><input type="submit" value="Create"></div>
-      </div>
-      <div class="multiupload">
-        <div class="creatline">
-          <p>Create multiple teacher accounts</p>
+        <div class="input_info">
+          <button class="submited" type="submit" id="createTeacherAccount">Create</button>
         </div>
-        <div class="file-upload">
-          <label for="uploadfile" class="upload-text">Upload file .csv</label>
-          <input type="file" name="upload file .csv" id="uploadfile" required>
-        </div>
-        <div class="submited"><input type="submit" value="Create"></div>
-      </div>
-
-
+        <!-- <div class="submited"><input type="submit" value="Create"></div> -->
+      </form>
     </div>
   </div>
   <div class="content" id="gradeContent">
@@ -256,12 +313,17 @@
       document.getElementById('detailGradeList').removeAttribute('style');
       document.getElementById('detailGradeList').setAttribute('style', 'display:none');
     }
+
+    function saveCurrentCourse(courseID){
+      sessionStorage.setItem('currentCourseID', courseID);
+    }
   </script>
   <script type="module" src="./source/teacherSelect.js"></script>
-  <script type="module" src="./source/createNewCourses.js"></script>
+  <script type="module" src="./source/createNewClass.js"></script>
   <script type="module" src="./source/createTeacherAccount.js"></script>
   <script type="module" src="./source/adminOverall.js"></script>
   <script type="module" src="./source/adminGrade.js"></script>
+  <script type="module" src="./source/createNewCourse.js"></script>
 </body>
 
 </html>

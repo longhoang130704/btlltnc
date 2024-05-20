@@ -37,7 +37,7 @@
 
   <div class="course-content" id="course-content">
     <div class="course-info" id="course-info" style="font-size: 32px;">
-      <p>Course Name - Teacher Name - Class</p>
+      <p id="course-info"></p>
     </div>
 
     <div class="content-block" style="z-index: 0;">
@@ -48,50 +48,18 @@
       </nav>
 
       <section class="body-table" id="body-table">
-        <div class="general-info">
-          <h2 class="section-title">General</h2>
-          <div class="divider"></div>
-
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-
-          <div class="content-create">
-            <div class="content-thumbnail">
-              <img src="./img/add_button.png" alt="">
-            </div>
-            <button type="button" id="create-content-btn">Create Content</button>
-          </div>
-        </div>
-
-        <div class="lecture-info">
-          <h2 class="section-title">Lecture</h2>
-          <div class="divider"></div>
-
-          <div class="content-item">
-            <div class="content-thumbnail"></div>
-            <h3 class="content-title">Content name</h3>
-          </div>
-
-          <div class="content-create">
-            <div class="content-thumbnail">
-              <img src="./img/add_button.png" alt="">
-            </div>
-            <button type="button" id="create-content-btn">Create Content</button>
-          </div>
-        </div>
-
-        <div class="new-section">
-          <div class="create-section-btn">
-            <button>Create new section</button>
-          </div>
-          <div class="divider"></div>
-          <input type="text" id="section-name-input" style="display: none;">
-        </div>
-
-
       </section>
+
+      <div class="new-section" id="createSectionPanel">
+        <div class="create-section-btn">
+          <button id='showSectionPanel' onclick="showCreateSectionPanel()">Create new section</button>
+        </div>
+        <div id="sectionPanel">
+          <input type="text" id="section-name-input" style="display: none; width:80%; " placeholder="Enter a name for the new section" autocomplete="off">
+          <button type="submit" id="section-name-btn" style="display: none;">Create</button>
+        </div>
+        <div class="divider"></div>
+      </div>
 
       <div class="create-new-content" id="create-content-panel" style="display: none;">
         <p>Create new content</p>
@@ -99,35 +67,50 @@
           <div class="label">
             <p>Content name</p>
           </div>
-          <input type="text" placeholder="Content name" id="name-input">
+          <input type="text" placeholder="Enter content name" id="name-input" class="content-input" required autocomplete="off">
         </div>
-        <div class="content-type">
+        <div class="content-link">
           <div class="label">
-            <p>Type</p>
+            <p>Link</p>
           </div>
-          <div class="checkbox-container">
-            <input type="checkbox" id="file-checkbox" name="File" value="file">
-            <p>File</p>
-
-            <input type="checkbox" id="text-checkbox" name="Text" value="text">
-            <p>Text</p>
-          </div>
-
+          <input type="text" placeholder="Enter content name" id="link-input" class="content-input" required autocomplete="off">
         </div>
-        
-        <div class="file-upload" id="file-upload-panel" style="display: none;">
-          <input type="file" id="file-upload" placeholder="Upload file" autocomplete="off">
-        </div>
-
-        <div class="text-input" id="text-input-panel" style="display: none;">
-          <input type="text" placeholder="Enter your content" id="text-input">
-        </div>
-
-        <button type="button" id="go-back">Go back</button>
-        <button type="submit">Create</button>
+        <button type="button" id="go-back" onclick="goBack()">Go back</button>
+        <button type="submit" id="createContentBtn">Create</button>
       </div>
 
+      <div class="create-new-content" id="edit-content-panel" style="display: none;">
+        <p>Edit content</p>
+        <div class="content-name-input">
+          <div class="label">
+            <p>Content name</p>
+          </div>
+          <input type="text" placeholder="" id="edit-content-name-input" class="content-input" required autocomplete="off">
+        </div>
+        <div class="content-link">
+          <div class="label">
+            <p>Link</p>
+          </div>
+          <input type="text" placeholder="" id="edit-content-link-input" class="content-input" required autocomplete="off">
+        </div>
+        <button type="button" id="go-back" onclick="goBack()">Go back</button>
+        <button type="submit" id="deleteContentBtn" onclick="" style="background-color: rgb(255, 108, 108);">Delete</button>
+        <button type="submit" id="updateContentBtn">Update</button>
+      </div>
 
+      <div class="create-new-content" id="edit-section-panel" style="display: none;">
+        <p>Edit section</p>
+        <div class="content-name-input">
+          <div class="label">
+            <p>Section name</p>
+          </div>
+          <input type="text" placeholder="" id="edit-section-name-input" class="content-input" required autocomplete="off">
+        </div>
+        
+        <button type="button" id="go-back" onclick="goBack()">Go back</button>
+        <button type="submit" id="deleteSectionBtn" onclick="" style="background-color: rgb(255, 108, 108);">Delete</button>
+        <button type="submit" id="updateSectionBtn">Update</button>
+      </div>
     </div>
   </div>
   <script type="module" src="./source/index.js"></script>
@@ -136,8 +119,59 @@
       sessionStorage.clear();
       window.location.href = "./login.html";
     }
+
+    function showCreateContentPanel(currentSection) {
+      sessionStorage.setItem('currentSection', currentSection);
+      document.getElementById('createSectionPanel').style.display = 'none'
+      document.getElementById('body-table').style.display = 'none';
+      document.getElementById('create-content-panel').style.display = "block";
+    }
+
+    function showEditContentPanel(sectionIndex, contentIndex) {
+      let currentlyEdit = {
+        'sectionIndex':sectionIndex,
+        'contentIndex':contentIndex,
+        'contentName' :document.getElementById(`${sectionIndex}-${contentIndex}`).innerText,
+        'contentLink' :document.getElementById(`${sectionIndex}-${contentIndex}`).href,
+      }
+      document.getElementById('edit-content-name-input').setAttribute('placeholder', currentlyEdit.contentName);
+      document.getElementById('edit-content-link-input').setAttribute('placeholder', currentlyEdit.contentLink);
+      sessionStorage.setItem('currentSection', JSON.stringify(currentlyEdit));
+      document.getElementById('createSectionPanel').style.display = 'none'
+      document.getElementById('body-table').style.display = 'none';
+      document.getElementById('edit-content-panel').style.display = "block";
+    }
+
+    function goBack() {
+      sessionStorage.removeItem('currentSection');
+      document.getElementById('createSectionPanel').style.display = 'flex';
+      document.getElementById('body-table').style.display = 'block';
+      document.getElementById('create-content-panel').style.display = "none";
+      document.getElementById('edit-section-panel').style.display = "none";
+      document.getElementById('edit-section-panel').style.display = "none";
+      document.getElementById('edit-content-panel').style.display = "none";
+      
+    }
+
+    function showCreateSectionPanel() {
+      document.getElementById('section-name-input').style.display = 'block';
+      document.getElementById('section-name-btn').style.display = 'block';
+    }
+
+    function showEditSectionPanel(sectionIndex, sectionName) {
+      let currentlyEdit = {
+        'sectionIndex':sectionIndex,
+        'sectionName' :sectionName,
+      }
+      sessionStorage.setItem('currentSection', JSON.stringify(currentlyEdit));
+      document.getElementById('createSectionPanel').style.display = 'none'
+      document.getElementById('body-table').style.display = 'none';
+      document.getElementById('edit-section-panel').style.display = "block";
+      document.getElementById('edit-section-name-input').setAttribute('placeholder', sectionName);
+    }
   </script>
   <script type="module" src="./source/teacher_course_edit.js"></script>
+  <script type="module" src="./source/course-content.js"></script>
 </body>
 
 <footer>

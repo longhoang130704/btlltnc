@@ -183,6 +183,11 @@ button {
   padding: 8px; 
   color: #FFFFFF;
 }
+
+tbody .element {
+  font-size: 18px;
+}
+
 .no-border {
   border-bottom: none;
   color: #FFFFFF;

@@ -16,8 +16,8 @@
       <img src="img/logo-placeholder.svg" class="logo" />
     </header>
     <div class="roleuser">
-      <p class="user-name">User</p>
-      <p class="user-role">User role</p>
+      <p class="user-name" id="user-name-placeholder">User</p>
+      <p class="user-role" id="user-role-placeholder">User role</p>
     </div>
     <div class="menu-bar">
       <div class="nav-link active">
@@ -26,9 +26,9 @@
       <div class="nav-link active">
         <a href="#" class="nav-text" onclick="showContent('timetable')">Timetable</a>
       </div>
-      <div class="nav-link active">
+      <!-- <div class="nav-link active">
         <a href="#" class="nav-text" onclick="showContent('exam-schedule')">Exam schedule</a>
-      </div>
+      </div> -->
       <div class="nav-link active">
         <a href="#" class="nav-text" onclick="showContent('grade')">Grade</a>
       </div>
@@ -113,7 +113,31 @@
     </div>
 
     <div class="timetable container-block hide" id="timetable">
-      <p class="title">
+      <section class="body-table" style="width: 100%;">
+        <table class="style-table" style="width: 90%;">
+          <thead style="font-size: 18px">
+            <tr>
+              <th class="element" style="width:15%">Course ID</th>
+              <th class="element" style="width: 30%;">Course name</th>
+              <th class="element" style="width: 10%;">Class</th>
+              <th class="element" style="width: 15%;">Date of Week</th>
+              <th class="element" style="width: 20%;">Time</th>
+              <th class="element" style="width: 10%;">Room</th>
+            </tr>
+          </thead>
+          <tbody id="time-table">
+            <!-- <tr>
+              <td class="element">CO2039</td>
+              <td class="element">Advanced Programming</td>
+              <td class="element">L01</td>
+              <td class="element">Monday</td>
+              <td class="element">7:00 - 9:00</td>
+              <td class="element">H1-404</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </section>
+      <!-- <p class="title">
         <button id="prevWeek">
           <img src="img/left-arrow-button.png" class="arrow-button" alt="Previous Week" />
         </button>
@@ -181,127 +205,22 @@
         <div class="child-block">
           <div class="title">Sun</div>
         </div>
-      </div>
-    </div>
-
-    <div class="exam-schedule container-block hide" id="exam-schedule">
-      <p class="title">Exam schedule</p>
-      <section class="body-table">
-        <table class="style-table">
-          <thead>
-            <tr>
-              <th class="element">Course ID</th>
-              <th class="element">Course name</th>
-              <!-- <th class="element">Class</th> -->
-              <th class="element">Midterm</th>
-              <th class="element">Final</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="element">MT2013</td>
-              <td class="element">Probability and Statistics</td>
-              <!-- <td class="element">L01</td> -->
-              <td class="element">
-                <p>07:00 - 17/03</p>
-                <p>H6-213</p>
-              </td>
-              <td class="element">_</td>
-            </tr>
-            <tr>
-              <td class="element">CO2017</td>
-              <td class="element">Operating Systems</td>
-              <!-- <td class="element">L07/td> -->
-              <td class="element">
-                <p>09:00 - 16/03</p>
-                <p>H1-310</p>
-              </td>
-              <td class="element">
-                <p>09:00 - 14/05</p>
-                <p>H1-306</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      </div> -->
     </div>
 
     <div class="grade container-block hide" id="grade">
-      <div class="title">
-        <div class="dropdown">
-          <button class="btn" id="dropdownButton">
-            <p class="semester">Semester 232</p>
-            <i class="fas fa-caret-down drop-down-icon"></i>
-          </button>
-          <ul class="dropdown-menu" id="dropdownMenu">
-            <li><a href="#">Semester 231</a></li>
-            <li><a href="#">Semester 223</a></li>
-            <li><a href="#">Semester 222</a></li>
-            <li><a href="#">Semester 221</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <section class="body-table">
-        <table class="style-table">
+      <section class="body-table" style="width: 100%;">
+        <table class="style-table" style="width: 90%;">
           <thead>
             <tr>
-              <th class="element">Course ID</th>
+              <th class="element" style="width:20%">Course ID</th>
               <th class="element">Course name</th>
               <th class="element">Credit</th>
-              <th class="element">Grade</th>
+              <th class="element" style="width: 20%;">Grade</th>
               <th class="element">Overall</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="element">CO2039</td>
-              <td class="element">Advance Programming</td>
-              <td class="element">3</td>
-              <td class="element">
-                <p>Test:_</p>
-                <p>Lab:_</p>
-                <p>Mid:_</p>
-                <p>Final:_</p>
-              </td>
-              <td class="element">8.2</td>
-            </tr>
-            <tr>
-              <td class="element">CO2017</td>
-              <td class="element">Operating Systems</td>
-              <td class="element">3</td>
-              <td class="element">
-                <p>Test:_</p>
-                <p>Lab:_</p>
-                <p>Mid:_</p>
-                <p>Final:_</p>
-              </td>
-              <td class="element"></td>
-            </tr>
-            <tr>
-              <td class="element">MT2013</td>
-              <td class="element">Probability and Statistics</td>
-              <td class="element">4</td>
-              <td class="element">
-                <p>Test:_</p>
-                <p>Lab:_</p>
-                <p>Mid:_</p>
-                <p>Final:_</p>
-              </td>
-              <td class="element"></td>
-            </tr>
-            <tr>
-              <td class="element">SP1033</td>
-              <td class="element">Marxist - Leninist Political Economy</td>
-              <td class="element">2</td>
-              <td class="element">
-                <p>Test:_</p>
-                <p>Lab:_</p>
-                <p>Mid:_</p>
-                <p>Final:_</p>
-              </td>
-              <td class="element"></td>
-            </tr>
+          <tbody id="grade-table">
           </tbody>
         </table>
       </section>
@@ -330,10 +249,15 @@
         // <!-- Add code -->
       }
     }
+
+    let currentUser = JSON.parse(sessionStorage.getItem('user-info'));
+    let userRole = JSON.parse(sessionStorage.getItem('user-role')).role;
+    document.getElementById('user-name-placeholder').innerText = currentUser.firstname + ' ' + currentUser.lastname;
+    document.getElementById('user-role-placeholder').innerText = userRole.substring(0, userRole.length-1);
   </script>
 
   <!-- Phần js của arrow button -->
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Lấy các phần tử DOM của các nút và thời khóa biểu
       var prevWeekBtn = document.getElementById("prevWeek");
@@ -350,9 +274,9 @@
         // Cập nhật thời khóa biểu của tuần tiếp theo ở đây
       });
     });
-  </script>
+  </script> -->
 
-  <script>
+  <!-- <script>
     document.addEventListener("DOMContentLoaded", function () {
       var dropdownButton = document.getElementById("dropdownButton");
       var dropdownMenu = document.getElementById("dropdownMenu");
@@ -368,7 +292,7 @@
         }
       });
     });
-  </script>
+  </script> -->
 
   <script type="module" src="./source/student_profile.js"></script>
 </body>

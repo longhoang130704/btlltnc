@@ -17,8 +17,8 @@
       <img src="img/logo-placeholder.svg" class="logo">
     </header>
     <div class="roleuser">
-      <p class="user-name">User</p>
-      <p class="user-role">User role</p>
+      <p class="user-name" id="user-name-placeholder">User</p>
+      <p class="user-role" id="user-role-placeholder">User role</p>
     </div>
     <div class="menu-bar">
       <div class="nav-link active">
@@ -120,7 +120,32 @@
     </div>
 
     <div class="timetable container-block hide" id="timetable">
-      <p class="title">
+      <section class="body-table" style="width: 100%;">
+        <table class="style-table" style="width: 90%;">
+          <thead style="font-size: 18px">
+            <tr>
+              <th class="element" style="width:15%">Course ID</th>
+              <th class="element" style="width: 30%;">Course name</th>
+              <th class="element" style="width: 10%;">Class</th>
+              <th class="element" style="width: 15%;">Date of Week</th>
+              <th class="element" style="width: 20%;">Time</th>
+              <th class="element" style="width: 10%;">Room</th>
+            </tr>
+          </thead>
+          <tbody id="time-table">
+            <!-- <tr>
+              <td class="element">CO2039</td>
+              <td class="element">Advanced Programming</td>
+              <td class="element">L01</td>
+              <td class="element">Monday</td>
+              <td class="element">7:00 - 9:00</td>
+              <td class="element">H1-404</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </section>
+      
+      <!-- <p class="title">
         <button id="prevWeek">
           <img src="img/left-arrow-button.png" class="arrow-button" alt="Previous Week">
         </button>
@@ -163,7 +188,7 @@
         <div class="child-block">
           <div class="title">Sun</div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -189,6 +214,12 @@
         // <!-- Add code -->
       }
     }
+
+    let currentUser = JSON.parse(sessionStorage.getItem('user-info'));
+    let userRole = JSON.parse(sessionStorage.getItem('user-role')).role;
+    console.log(userRole)
+    document.getElementById('user-name-placeholder').innerText = currentUser.firstname + ' ' + currentUser.lastname;
+    document.getElementById('user-role-placeholder').innerText = userRole.substring(0, userRole.length-1);
   </script>
   <script type="module" src="./source/teacher_profile.js"></script>
 </body>

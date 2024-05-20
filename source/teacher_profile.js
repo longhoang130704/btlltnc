@@ -11,6 +11,7 @@ import {
   ref,
   set,
   update,
+  get,
 } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -54,8 +55,6 @@ let cur_pass = document.getElementById('cur-password-inp');
 let new_pass = document.getElementById('password-inp');
 let confirm_pass = document.getElementById('confirm-password');
 let updateBtn = document.getElementById('updateBtn');
-
-
 
 let updateInfo = (event) => {
   let update_alert_count = 0;
@@ -109,3 +108,65 @@ let updateInfo = (event) => {
 }
 
 updateBtn.addEventListener('click', updateInfo);
+
+function createScheduleTableRow(courseId, courseName, courseClassId, courseSchedule) {
+  let row = document.createElement('tr');
+
+  let td_courseId = document.createElement('td');
+  td_courseId.classList.add('element');
+  td_courseId.innerText = courseId;
+
+  let td_courseName = document.createElement('td');
+  td_courseName.classList.add('element');
+  td_courseName.innerText = courseName;
+
+  let td_courseClassId = document.createElement('td');
+  td_courseClassId.classList.add('element');
+  td_courseClassId.innerText = courseClassId;
+
+  let td_courseDate = document.createElement('td');
+  td_courseDate.classList.add('element');
+  td_courseDate.innerText = courseSchedule.course_date;
+
+  let td_courseTime = document.createElement('td');
+  td_courseTime.classList.add('element');
+  td_courseTime.innerText = `${courseSchedule.time_start} - ${courseSchedule.time_end}`
+
+  let td_courseRoom = document.createElement('td');
+  td_courseRoom.classList.add('element');
+  td_courseRoom.innerText = courseSchedule.room;
+
+  row.appendChild(td_courseId);
+  row.appendChild(td_courseName);
+  row.appendChild(td_courseClassId);
+  row.appendChild(td_courseDate);
+  row.appendChild(td_courseTime);
+  row.appendChild(td_courseRoom);
+
+  return row;
+}
+
+function load_user_timetable() {
+  get(ref(db, `Roles/Teachers/${teacher_info.user_id}/Courses`))
+  .then ((snapshot) => {
+    Object.entries(snapshot.val()).forEach((course) => {
+      let courseID = course[0];
+      Object.entries(course[1]).forEach((courseClass) => {
+        // console.log(courseClass);
+        let courseClassId = courseClass[1];
+        get(ref(db, `Courses/${courseID}`))
+        .then((snapshot) => {
+          let courseName = snapshot.val().name;
+          let courseSchedule = snapshot.val().Classes[courseClassId].schedule
+          // console.log(courseName);
+          // console.log(courseClassId);
+          // console.log(courseID);
+          // console.log(courseSchedule);
+          document.getElementById('time-table').appendChild(createScheduleTableRow(courseID, courseName, courseClassId, courseSchedule));
+        })
+      }) 
+    })
+  })
+}
+
+load_user_timetable();
